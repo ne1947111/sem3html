@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Resturant </title>
+		
+		<!--BOOTSTRAP LIBRARIES-->
+		<meta charset = "utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<style>	
+			.sec{
+				min-height:80vh;
+				text-align: center;
+				padding-left: 20vw;
+				padding-right:20vw;
+				padding-top: 5vh;
+				
+			}
+			html{scroll-behavior: smooth;}
+			.navbar { background-color: #484848; position:fixed; width:100%; z-index: 100000; }
+			.navbar .navbar-nav .nav-link { color: #fff; }
+			.navbar .navbar-nav .nav-link:hover { color: #fbc531; }
+			.navbar .navbar-nav .active > .nav-link { color: #fbc531; }
+
+			footer a.text-light:hover { color: #fed136!important; text-decoration: none; }
+			footer .cizgi { border-right: 1px solid #535e67; }
+			@media (max-width: 992px) { footer .cizgi { border-right: none; } }
+			
+			.checked {color: orange;}
+			
+			dd{font-size:16px; font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif"}
+			dt{color:#F0F0F0; font-size:18px;}	
+		</style>
+
+	</head>
+
+	<body>
+		
+		<header>
+			<!--- Navbar --->
+			<nav class="navbar navbar-expand-lg">
+				<div class="container">
+					<a class="navbar-brand text-white" href="#"> <img src="images/restlogo2.png" style="width:150px; vertical-align:middle; margin-top: -3px;"/></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse" aria-controls="nvbCollapse">
+						<span class="navbar-toggler-icon"> <i class="fa fa-bars" style="color:white; margin-top:8px;" aria-hidden="true"></i> </span>
+					</button>
+					<div class="collapse navbar-collapse" id="nvbCollapse">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item pl-1">
+								<a class="nav-link" href="index.html#"><i class="fa fa-home fa-fw mr-1"></i>Home</a>
+							</li>
+							<li class="nav-item pl-1">
+								<a class="nav-link" href="index.html#gallery"><i class="fa fa-picture-o fa-fw mr-1"></i>Gallery</a>
+							</li>
+							<li class="nav-item pl-1">
+								<a class="nav-link" href="index.html#reviews"><i class="fa fa-pencil-square-o fa-fw mr-1"></i>Reviews</a>
+							</li>
+							<li class="nav-item pl-1">
+								<a class="nav-link" href="index.html#about"><i class="fa fa-info-circle fa-fw mr-1"></i>About &nbsp;</a>
+							</li>
+
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<i class="fa fa-cutlery" aria-hidden="true"></i> Know More
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<a class="dropdown-item" href="menu.html">View Menu</a>
+									<a class="dropdown-item" href="#">View Our Kitchen</a>
+								  <div class="dropdown-divider"></div>
+								  <a class="dropdown-item" href="contact.html">Contact Us</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<!--# Navbar #-->
+		</header>	
+		
+		<section style="height:max-content; background-image: url('images/bg1.png'); background-size: cover; background-repeat: no-repeat; overflow:auto; padding-top:5vh; min-height:120vh;">
+			<div style="width:50%; position:absolute; padding:40px; padding-top:40px; margin-left:10%; border-radius: 20px; margin-top:4%; background-color:#FFFFFFCC">
+				<h2 class="display-3" style="margin-top:5%;"> Open Only For <br> <strong>  Takeaways! </strong> </h1>
+				<h6 class="display-4"> <small> <i> ~Catch us on the below address </i> </small> </h6>
+				<hr/>
+				<p style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif'"> NaiCafe, <br/> Opposite to Christ University Backgate, <br/> SG Palaya, Bengaluru <br/> Contact: +91 9446 147 782 <br/> <br/> We'll be back for Dining only when the cases are under control! <br/> Use the COVID Meter on the right to see the number of cases in India </p>
+				
+				
+
+				<a href="index.html"> <button style="margin-top:20px;" type="button" class="btn btn-warning">Visit <b>Homepage </b></button> </a>
+
+			</div>
+
+			<div style="position:absolute; width:60%; padding:30px; margin-top:250px; padding-right: 10%; text-align: right; right:0px"> 
+				<iframe id="iframec" class="img-fluid img-absolute" src="c19.html" scrolling="no" style="width: 60%; background-color: white; overflow:hidden;  border-radius: 25px; min-width:383px; max-width: 600px; height:270px; margin-top:-40px;" frameBorder="0"> </iframe>
+			</div>
+			<!---
+
+			<div style="position:absolute; width:50%; padding:60px; padding-right: 10%; text-align: right; right:0px"> 
+				<img src="images/img1.webp" style="width:100%;"/>
+			</div>
+
+			-->
+
+		</section>
+			
+	</body>
+
+</html>
