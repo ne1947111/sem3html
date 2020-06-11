@@ -15,6 +15,8 @@
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://cdn.rawgit.com/adriancooney/console.image/c9e6d4fd/console.image.min.js"></script>
+
 
 		<style>	
 			.sec{
@@ -49,7 +51,7 @@
 			<!--- Navbar --->
 			<nav class="navbar navbar-expand-lg">
 				<div class="container">
-					<a class="navbar-brand text-white" href="#"> <img src="images/restlogo2.png" style="width:150px; vertical-align:middle; margin-top: -3px;"/></a>
+					<a class="navbar-brand text-white" id="logorest" href="#"> <img src="images/restlogo2.png" style="width:150px; vertical-align:middle; margin-top: -3px;"/></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse" aria-controls="nvbCollapse">
 						<span class="navbar-toggler-icon"> <i class="fa fa-bars" style="color:white; margin-top:8px;" aria-hidden="true"></i> </span>
 					</button>
@@ -74,7 +76,6 @@
 								</a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 									<a class="dropdown-item" href="menu.html">View Menu</a>
-									<a class="dropdown-item" href="#">View Our Kitchen</a>
 								  <div class="dropdown-divider"></div>
 								  <a class="dropdown-item" href="contact.html">Contact Us</a>
 								</div>
@@ -86,32 +87,185 @@
 			<!--# Navbar #-->
 		</header>	
 		
-		<section style="height:max-content; background-image: url('images/bg1.png'); background-size: cover; background-repeat: no-repeat; overflow:auto; padding-top:5vh; min-height:120vh;">
-			<div style="width:50%; position:absolute; padding:40px; padding-top:40px; margin-left:10%; border-radius: 20px; margin-top:4%; background-color:#FFFFFFCC">
-				<h2 class="display-3" style="margin-top:5%;"> Open Only For <br> <strong>  Takeaways! </strong> </h1>
-				<h6 class="display-4"> <small> <i> ~Catch us on the below address </i> </small> </h6>
-				<hr/>
-				<p style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif'"> NaiCafe, <br/> Opposite to Christ University Backgate, <br/> SG Palaya, Bengaluru <br/> Contact: +91 9446 147 782 <br/> <br/> We'll be back for Dining only when the cases are under control! <br/> Use the COVID Meter on the right to see the number of cases in India </p>
-				
-				
 
-				<a href="index.html"> <button style="margin-top:20px;" type="button" class="btn btn-warning">Visit <b>Homepage </b></button> </a>
+		<section style="height:max-content; background-image: url('images/bg1.png'); background-size: cover; background-repeat: no-repeat; overflow:auto; padding-top:5vh; min-height:100vh;">
+			<div style="text-align: center; height:70vh;">
+				<table style="display: inline-block; overflow:display; padding:80px; height:auto;">
+					<tr>
+						<td rowspan="2" style="background-color:#FFFFFFCC; padding:40px; border-radius: 25px;">
+							<canvas id="canvasclock" style="padding-left: 160px;"> Your browser does not support the HTML5 canvas tag. </canvas>
 
-			</div>
+							<h2 class="display-3"> Open Only For <br> <strong>  Takeaways! </strong> </h1>
+							<h6 class="display-4"> <small> <i> ~Catch us on the below address </i> </small> </h6>
+							<hr/>
+							<p style="font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif'"> NaiCafe, <br/> Opposite to Christ University Backgate, <br/> SG Palaya, Bengaluru <br/> Contact: +91 9446 147 782 <br/> <br/> We'll be back for Dining only when the cases are under control! <br/> Use the COVID Meter on the right to see the number of cases in India </p>				
+							<a href="index.html"> <button style="margin-top:20px;" type="button" class="btn btn-warning">Visit <b>Homepage </b></button> </a>
+						</td>
 
-			<div style="position:absolute; width:60%; padding:30px; margin-top:250px; padding-right: 10%; text-align: right; right:0px"> 
-				<iframe id="iframec" class="img-fluid img-absolute" src="c19.html" scrolling="no" style="width: 60%; background-color: white; overflow:hidden;  border-radius: 25px; min-width:383px; max-width: 600px; height:270px; margin-top:-40px;" frameBorder="0"> </iframe>
-			</div>
-			<!---
+						<td style="padding:40px; vertical-align: middle; height:275px; background-color: #535e67;"> 
+							<canvas id="myCanvas" style="background-color:#535e67; border-radius: 25px; height:inherit; width:383px; min-width: 383px;"> Your browser does not support the HTML5 canvas tag.
+ 							</canvas>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding:40px; vertical-align: middle; height:275px; background-color: #484848;"> 						
+							<iframe id="iframec" src="c19.html" scrolling="no" style="background-color: white; overflow:hidden; height:inherit; width: 383px; border-radius: 25px; min-width:383px;" frameBorder="0"> </iframe>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">&nbsp;</td>
+					</tr>
+					<tr>
+						<td colspan="2">&nbsp;</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="padding-top:50px; padding-bottom: 50px; background-color: #fff; border-radius: 25px;">
+							<h3 class="display-5"> <strong> Be Safe! </strong> </h3> <p> Follow these guidelines so we all can come together again!</p>
+							<img src="images/covidimg.png" width="800px;">
+						</td>
+					</tr>
 
-			<div style="position:absolute; width:50%; padding:60px; padding-right: 10%; text-align: right; right:0px"> 
-				<img src="images/img1.webp" style="width:100%;"/>
-			</div>
+				</table>
 
-			-->
-
-		</section>
+			</section>
+		</div>
 			
+		<script>
+
+			var alpha = 0,   /// current alpha value
+			delta = 0.1; /// delta = speed
+
+
+			function loop() {
+
+				alpha += delta;
+				if (alpha <= 0 || alpha >= 1) delta = -delta;
+
+				/// clear canvas, set alpha and re-draw image
+				ctx.clearRect(0, 0, demo.width, demo.height);
+				ctx.globalAlpha = alpha;
+				ctx.drawImage(img, 0, 0);
+
+				requestAnimationFrame(loop); // or use setTimeout(loop, 16) in older browsers
+			}
+
+			
+			window.onload = function() {
+				var c = document.getElementById("myCanvas");
+				var ctx = c.getContext("2d");
+				var img = new Image();
+				img.onload = function() {
+					c.width = this.naturalWidth;
+					c.height = this.naturalHeight;
+					c.width = c.height * (c.clientWidth / c.clientHeight);
+					ctx.drawImage(img, 110, 0);
+					console.log("IMAGE IS LOADED!");
+					console.image(img);
+				};
+				img.src = 'images/restlogo3.png';
+			};
+
+			function clock() {
+				var now = new Date();
+				var ctx = document.getElementById('canvasclock').getContext('2d');
+				ctx.save();
+				ctx.clearRect(0, 0, 150, 150);
+				ctx.translate(75, 75);
+				ctx.scale(0.4, 0.4);
+				ctx.rotate(-Math.PI / 2);
+				ctx.strokeStyle = 'black';
+				ctx.fillStyle = 'white';
+				ctx.lineWidth = 8;
+				ctx.lineCap = 'round';
+
+				// Hour marks
+				ctx.save();
+				for (var i = 0; i < 12; i++) {
+					ctx.beginPath();
+					ctx.rotate(Math.PI / 6);
+					ctx.moveTo(100, 0);
+					ctx.lineTo(120, 0);
+					ctx.stroke();
+				}
+				ctx.restore();
+
+				// Minute marks
+				ctx.save();
+				ctx.lineWidth = 5;
+				for (i = 0; i < 60; i++) {
+					if (i % 5!= 0) {
+					ctx.beginPath();
+					ctx.moveTo(117, 0);
+					ctx.lineTo(120, 0);
+					ctx.stroke();
+					}
+					ctx.rotate(Math.PI / 30);
+				}
+				ctx.restore();
+				
+				var sec = now.getSeconds();
+				var min = now.getMinutes();
+				var hr  = now.getHours();
+				hr = hr >= 12 ? hr - 12 : hr;
+
+				ctx.fillStyle = 'black';
+
+				// write Hours
+				ctx.save();
+				ctx.rotate(hr * (Math.PI / 6) + (Math.PI / 360) * min + (Math.PI / 21600) *sec);
+				ctx.lineWidth = 14;
+				ctx.beginPath();
+				ctx.moveTo(-20, 0);
+				ctx.lineTo(80, 0);
+				ctx.stroke();
+				ctx.restore();
+
+				// write Minutes
+				ctx.save();
+				ctx.rotate((Math.PI / 30) * min + (Math.PI / 1800) * sec);
+				ctx.lineWidth = 10;
+				ctx.beginPath();
+				ctx.moveTo(-28, 0);
+				ctx.lineTo(112, 0);
+				ctx.stroke();
+				ctx.restore();
+				
+				// Write seconds
+				ctx.save();
+				ctx.rotate(sec * Math.PI / 30);
+				ctx.strokeStyle = '#D40000';
+				ctx.fillStyle = '#D40000';
+				ctx.lineWidth = 6;
+				ctx.beginPath();
+				ctx.moveTo(-30, 0);
+				ctx.lineTo(83, 0);
+				ctx.stroke();
+				ctx.beginPath();
+				ctx.arc(0, 0, 10, 0, Math.PI * 2, true);
+				ctx.fill();
+				ctx.beginPath();
+				ctx.arc(95, 0, 10, 0, Math.PI * 2, true);
+				ctx.stroke();
+				ctx.fillStyle = 'rgba(0, 0, 0, 0)';
+				ctx.arc(0, 0, 3, 0, Math.PI * 2, true);
+				ctx.fill();
+				ctx.restore();
+
+				ctx.beginPath();
+				ctx.lineWidth = 14;
+				ctx.strokeStyle = '#325FA2';
+				ctx.arc(0, 0, 142, 0, Math.PI * 2, true);
+				ctx.stroke();
+
+				ctx.restore();
+
+				window.requestAnimationFrame(clock);
+			}
+
+				window.requestAnimationFrame(clock);
+
+			
+		</script>
 	</body>
 
 </html>
