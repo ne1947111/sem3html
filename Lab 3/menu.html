@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+    <head>
+        <title> NaiCafe Menu </title>
+
+        <meta charset = "utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>	
+			.sec{
+				min-height:80vh;
+				text-align: center;
+				padding-left: 20vw;
+				padding-right:20vw;
+				padding-top: 5vh;
+			}
+			html{scroll-behavior: smooth;}
+			.navbar { background-color: #484848; position:fixed; width:100%; z-index: 100000; }
+			.navbar .navbar-nav .nav-link { color: #fff; }
+			.navbar .navbar-nav .nav-link:hover { color: #fbc531; }
+			.navbar .navbar-nav .active > .nav-link { color: #fbc531; }
+
+			footer a.text-light:hover { color: #fed136!important; text-decoration: none; }
+			footer .cizgi { border-right: 1px solid #535e67; }
+			@media (max-width: 992px) { footer .cizgi { border-right: none; } }
+			
+			.checked {color: orange;}
+			
+			dd{font-size:16px; font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif"}
+			dt{color:#F0F0F0; font-size:18px;}
+
+            td{width:auto; min-width: 150px; min-height:40px; height:auto; text-align: left; padding:10px;}
+            td.first{border-left:none; width:200px;}
+            td.second{border-right:none; width:200px; padding:0px; text-align: right;}
+            td.second img{height:200px; width:200px;}
+            tr:nth-child(odd) {background-color: #ffffff;}
+            tr:nth-child(even) {background-color: #f2f2f2;}
+            th{text-align: center;}
+
+			
+		</style>
+    
+    </head>
+
+    <body style="background-image: url('images/bg7.jpg'); background-repeat: repeat; ">
+        <header>
+			<!--- Navbar --->
+			<div id="nav-place">
+
+            </div>
+			<!--# Navbar #-->
+        </header>	
+
+        <br/>
+
+        <section class="center" style="margin-top:5%; text-align: center;">
+
+
+            <div style="display: inline-block; margin-bottom:50pt;">
+                <table>
+                    <tr> <h2 class="display-4"> <small style="color: #222222;"> NAICAFE: FOOD MENU </small> </h2> </tr>
+
+                    <tr>Find delicious Indian Vegetarian Food menu for home delivery.</tr> 
+
+                    <tr>
+                        <table style="width:max-content; height: auto; caption-side: top;" border="4" cellspacing="5px" cellpadding="20px">
+                            <caption style="caption-side: top;"> <b> Veg Items - Main Dishes </b> </caption>
+                            <thead>
+                                 <tr style="height: 23px;">
+                                    <th rowspan="2" colspan="2">Item</td>
+                                    <th colspan="2">PRICE </td>
+                                </tr>
+                                <tr style="height: 23px;">
+                                    <th>Half</td>
+                                    <th>Full</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <tr>
+                                    <td class="second"> <img src="images/menuitems/paneer.jpg"/> </td>
+                                    <td class="first">Paneer Masala</td>
+                                    <td>80</td>
+                                    <td>150</td>
+                                </tr>
+                                <tr">
+                                    <td class="second"> <img src="images/menuitems/mushroom.jpg"/> </td>
+                                    <td class="first">Mushroom Masala</td>
+                                    <td>70</td>
+                                    <td>130</td>
+                                </tr>
+                                <tr">
+                                    <td class="second"> <img src="images/menuitems/aloo.jpg"/> </td>
+                                    <td class="first">Jeera Aloo</td>
+                                    <td>70</td>
+                                    <td>130</td>
+                                </tr>
+                                <tr>
+                                    <td class="second"> <img src="images/menuitems/vegkadai.jpg"/> </td>
+                                    <td class="first">Veg Kadai</td>
+                                    <td>80</td>
+                                    <td>150</td>
+                                </tr>
+                                <tr>
+                                    <td class="second"> <img src="images/menuitems/gobi.jpg"/> </td>
+                                    <td class="first">Gobi Masala</td>
+                                    <td>70</td>
+                                    <td>130</td>
+                                </tr>
+                                <tr>
+                                    <td class="second"> <img src="images/menuitems/rajma.jpg"/> </td>
+                                    <td class="first">Rajma Masala</td>
+                                    <td>60</td>
+                                    <td>110</td>
+                                </tr>
+                            </tbody>
+                                   
+                        </table>
+                    </tr>
+
+                    <tr>
+                        <table style="width:max-content; height: auto; caption-side: top;" border="4" cellspacing="5px" cellpadding="20px">
+                            <caption style="caption-side: top;"> <b> Indian Breads </b> </caption>
+                            <thead>
+                                 <tr style="height: 23px;">
+                                    <th rowspan="2" colspan="2">Item</td>
+                                    <th colspan="2">PRICE </td>
+                                </tr>
+                                <tr style="height: 23px;">
+                                    <th>Single</td>
+                                    <th>Set</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <tr>
+                                    <td class="second"> <img src="images/menuitems/chappathi.jpg"/> </td>
+                                    <td class="first">Chappati/Roti</td>
+                                    <td>8</td>
+                                    <td>30</td>
+                                </tr>
+                                <tr">
+                                    <td class="second"> <img src="images/menuitems/perotta.jpg"/> </td>
+                                    <td class="first">Perotta</td>
+                                    <td>15</td>
+                                    <td>40</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="second"> <img src="images/menuitems/naan.jpg"/> </td>
+                                    <td class="first">Naan</td>
+                                    <td>20</td>
+                                    <td>50</td>
+                                </tr>
+                            </tbody>
+        
+                            <tfoot style="padding:20px;">
+                                <tr> <td colspan="4"> <small> <i> *Due to the pandemic situation in our country, only these items are served with Indian Breads Currently </i> </small> </td> </tr>
+                            </tfoot>
+                            
+                        </table>
+                    </tr>
+                </table>
+                 
+                
+            </div>
+            
+        </section>
+
+        <script>
+            $(function(){
+              $("#nav-place").load("navbar.html");
+            });
+        </script>
+        
+    </body>
+</html>
