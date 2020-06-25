@@ -205,7 +205,7 @@
 								This documentary is sponsored and shot in NaiCafe!
 								Watch the trailer below!							
 							<div style="width: 90%; padding:20px; height: 500px; margin-left: 50px;">
-								<video width="800" height="450" controls autoplay>
+								<video id="cheftablevideo" width="800" height="450" poster="images/videoposter.PNG" controls autoplay loop muted preload="metadata">
 									<source src="images/cheftable1.mp4" type="video/mp4">
 								  Your browser does not support the video tag.
 								</video>
@@ -221,15 +221,6 @@
 					<tr>
 						<td colspan="2">&nbsp;</td>
 					</tr>
-
-					<!--
-					<tr>
-						<td colspan="2" style="padding-top:50px; padding-bottom: 50px; background-color: #fff; border-radius: 25px;">
-							<h3 class="display-5"> <strong> Our Location </strong> </h3> <p> Follow the map to reach us <br/> or <b>  Click Here </b> to get directions </p>
-							<embed type="text/htmll" style="width: 80%; padding:20px;" height="600" id="gmap_canvas" src="https://maps.google.com/maps?q=Catholic%20Syrian%20Bank%2C%20Campus%20Road&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-						</td>
-					</tr>
-					-->
 					<tr>
 						<td colspan="2" style="padding-top:50px; padding-bottom: 50px; background-color: #fff; border-radius: 25px; text-align: center;">
 							<h3 class="display-5"> <strong> Our Location </strong> </h3> <p> Follow the map to reach us <br/> or <b id="mapclick">  Click Here </b> to get directions </p> <br/>
@@ -240,8 +231,6 @@
 												
 						</td>
 					</tr>
-
-
 
 				</table>
 
@@ -381,15 +370,6 @@
 
 		<script>
 			var x = document.getElementById("mapholder");
-				
-			/*
-			function getLocation() {
-				if (navigator.geolocation) {
-					navigator.geolocation.getCurrentPosition(showPosition);
-				} else { 
-					x.innerHTML = "Geolocation is not supported by this browser.";
-				}
-			}*/
 
 			function initMap(lat, lon) {		
 				
@@ -455,22 +435,6 @@
 				document.getElementById('mapclick').addEventListener("click", onClickHandler);
 
 			}
-			/*
-			function calcRoute() {
-				var start = document.getElementById('start').value;
-				var end = document.getElementById('end').value;
-				var request = {
-					origin: start,
-					destination: end,
-					travelMode: 'DRIVING'
-				};
-				directionsService.route(request, function(result, status) {
-					if (status == 'OK') {
-					directionsRenderer.setDirections(result);
-					}
-				});
-			}
-			*/
 
 		</script>
 		<script async defer
