@@ -33,23 +33,48 @@
 			height: 20px;
 			background-color: red;
 			position: relative;
-			animation: myfirst 5s linear 2s infinite alternate;
+			animation: anim1 5s linear 2s infinite alternate;
 			}
 
 			.sameanim {
 			width: 20px;
 			height: 20px;
-			background-color: red;
+			background-color: green;
 			position: relative;
-			animation: myfirst 5s linear 2s infinite;	
+			animation: anim2 5s linear 2s infinite;	
 			}
 
-			@keyframes myfirst {
+			.roundanim {
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background-color: yellow;
+			position: relative;
+			animation: anim3 5s linear 2s infinite;	
+			}
+
+			@keyframes anim1 {
 			0%   {background-color:red; left:0px; top:0px;}
 			25%  {background-color:yellow; left:200px; top:0px;}
 			50%  {background-color:blue; left:200px; top:200px;}
 			75%  {background-color:green; left:0px; top:200px;}
 			100% {background-color:red; left:0px; top:0px;}
+			}
+
+			@keyframes anim2 {
+			0%   {background-color:green; left:0px; top:0px;}
+			25%  {background-color:red; left:200px; top:0px;}
+			50%  {background-color:blue; left:200px; top:200px;}
+			75%  {background-color:yellow; left:0px; top:200px;}
+			100% {background-color:red; left:0px; top:0px;}
+			}
+
+			@keyframes anim3 {
+			0%   {background-color:blue; left:0px; top:0px;}
+			25%  {background-color:green; left:200px; top:0px;}
+			50%  {background-color:red; left:200px; top:200px;}
+			75%  {background-color:yellow; left:0px; top:200px;}
+			100% {background-color:blue; left:0px; top:0px;}
 			}
 
 
@@ -67,6 +92,13 @@
 			
 			dd{font-size:16px; font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif"}
 			dt{color:#F0F0F0; font-size:18px;}	
+
+			img{
+				transition: 1s;
+			}
+			img:hover{
+				transform: scale(1.2);
+			}
 		</style>
 
 	</head>
@@ -92,19 +124,26 @@
 				<div class="sameanim"> </div>
 			</div>
 
-			<div style="position: absolute; top:80%; left:30%;">
+			<div style="position: absolute; top:60%; left:30%;">
 				<div class="sameanim"> </div>
 			</div>
-
 
 			<div style="position: absolute; top:30%; left:10%;">
 				<div class="sameanim"> </div>
 			</div>
 
-
-			<div style="position: absolute; top:20%; left:90%;">
+			<div style="position: absolute; top:90%; left:90%;">
 				<div class="someanim"> </div>
 			</div>
+
+			<div style="position: absolute; top:21%; left:85%;">
+				<div class="roundanim"> </div>
+			</div>
+
+			<div style="position: absolute; top:90%; left:22%;">
+				<div class="roundanim"> </div>
+			</div>
+			
 
 
 
