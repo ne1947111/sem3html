@@ -78,7 +78,20 @@
 			}
 
 
-			html{scroll-behavior: smooth;}
+			html{scroll-behavior: smooth; 
+				webkit-filter: blur(2px) brightness(5%); /* Chrome, Safari, Opera */
+				filter: blur(2px) brightness(80%);
+				transition: .7s -webkit-filter linear;
+				opacity: 90%;
+
+				
+			}
+			html:hover{
+				opacity: 100%;
+				webkit-filter: blur(0px) brightness(100%); /* Chrome, Safari, Opera */
+				filter: blur(0px) brightness(100%);
+			}
+			div{opacity: 100%;}
 			.navbar { background-color: #484848; position:fixed; width:100%; z-index: 100000; }
 			.navbar .navbar-nav .nav-link { color: #fff; }
 			.navbar .navbar-nav .nav-link:hover { color: #fbc531; }
@@ -99,6 +112,60 @@
 			img:hover{
 				transform: scale(1.2);
 			}
+
+
+			ul>li{
+				margin-top: 2px;
+			}
+			li {
+				margin-left: 10px;
+				list-style-type: circle;
+				display: list-item;
+			}
+
+			li > ul > li{
+				list-style-type:square;
+				display: list-item;
+			}
+
+			.atmos{
+				list-style-type:kannada;
+			}
+
+			.dist{
+				list-style-type:"\2197   ";
+			}
+
+			.posit{
+				list-style-type:"\1F44D"
+			}
+
+			.opacityhover{
+				opacity: 60%;
+				transition: all .4s ease;
+				-webkit-transition: all .4s ease;
+			}
+
+			.opacityhover:hover{
+				opacity: 100%;
+			}
+
+			.hoverzoom{
+				opacity:70%;
+				filter:hue-rotate(0deg);
+				transition:all 1s ease;
+			}
+
+			.hoverzoom:hover{
+				opacity:100%;
+				transform:scale(1.1);
+				filter:hue-rotate(60deg);
+			}
+
+			
+
+
+
 		</style>
 
 	</head>
@@ -152,7 +219,7 @@
 				<h6 class="display-4"> <small> <i> ~ Chase the Flavours </i> </small> </h6>
 				<hr/>
 
-				<audio controls autoplay preload="auto">
+				<audio controls preload="auto">
 					<source src="images/intro_audio.mp3" type="audio/mp3">
 				  Your browser does not support the audio element.
 				</audio>
@@ -170,7 +237,7 @@
 				<a href="menu.html"> <button style="margin-top:20px;" type="button" class="btn btn-warning">Take me to the <b> Menu </b></button> </a>
 
 			</div>
-			<div style="position:absolute; width:50%; padding:65px; padding-right: 8%; text-align: right; right:0px"> 
+			<div class="opacityhover" style="position:absolute; width:50%; padding:65px; padding-right: 8%; text-align: right; right:0px"> 
 				<img src="images/img1.webp" style="width:100%;"/>
 			</div>
 		</section>
@@ -256,16 +323,51 @@
 		<section id="about" class="sec" style="background-image: url('images/bg4.jpg'); background-size: cover;">
 				<header>  <h2 class="display-3"> About <strong> NaiCafe </strong> </h2> </header>
 			
-				<p style="padding: 40px; color:#e6e6e6; margin-top:20px; background-color:#000000aa; border-radius: 20px; font-size:14pt; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif'"> 
+				<p class="hoverzoom" style="padding: 40px; color:#e6e6e6; margin-top:20px; background-color:#000000aa; border-radius: 20px; font-size:12pt; font-family: Segoe, 'Segoe UI', 'DejaVu Sans', 'Trebuchet MS', Verdana, 'sans-serif'"> 
 					We love to eat, to take our time and enjoy the flavours in a series of small dishes. Our degustation gives you the chance to do exactly that. More than a succession of plates, we offer you an experience, a connection between each dish, pulling from our seaside location in Bronte. Complete the journey with our optional matching drinks. <br>
 					<br> Located on a vibrant pedestrianised market street, caravan exmouth market is a bright and airy space with glazed frontage on two sides and an outside terrace on the market. Serving our signature well-travelled breakfast and all day food and drinks menus, along with our freshly roasted coffee from the caravan roastery, our style is open, relaxed and friendly. Come down for a coffee with the morning paper, a cocktail and small plates in the evening and anything in between! Our food captures the warmth and comfort of an Indian trattoria, with a menu that reflects the rich cultures of both India and Other Countries. <br> 
 				</p>
 
-				<div style="background-color:#222222; margin-top: 20px; padding:40px; border-radius: 20px; margin-bottom: 20px;">
-					<iframe width="800" height="400" src="https://www.youtube.com/embed/IXSg-YTnqGY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<div class="hoverzoom" style="display: inline-block; text-align: left; border-radius: 20px; border-style: solid; padding-right: 15vw;  padding-left: 15vw; padding-bottom:20px; padding-top:15px; background-color:bisque; margin-bottom: 50px; margin-top:50px;">
+					<h2 class="display-4" style="font-size:26pt; margin-bottom: 10px;"> Our <strong> Attractions</strong> </h2>
+						
+						<ul>
+							<li style="margin-top: 10px;"> <strong>Various Cusines</strong>
+								<ul>
+									<li> Continental</li>
+									<li> American </li>
+									<li> Arabian and Barbeque </li>
+									<li> Indian </li>
+									<li> Chinese </li>
+								</ul>							
+							</li>	
+							
+							<li style="margin-top: 10px;">  <strong>Well Maintained Atmosphere</strong>
+								<ul>
+									<li class="atmos"> Air Conditioned Cafe </li>
+									<li class="atmos"> Rooftop Arrangements </li>
+									<li class="atmos"> Live Music </li>
+								</ul>	
+							</li>
 
+							<li style="margin-top: 10px;"> <strong>Distances from Various Places</strong>
+								<ul>
+									<li class="dist"> Walkable Distance from CHRIST University </li>
+									<li class="dist"> 1 KM from Madiwala Bus Station </li>
+									<li class="dist"> Around 7 KMs from Majestic Railway Station </li>
+								</ul>	
+							</li>
+
+							<li style="margin-top: 10px;"> <strong>Positive Reviews</strong>
+								<ul>
+									<li class="posit"> "Quick & Perfect Dish Preparation" </li>
+									<li class="posit"> "They do not have a compromise for Taste & Safety" </li>
+									<li class="posit"> "One of the best cafe around the town" </li>
+								</ul>	
+							</li>
+						</ul>
 				</div>
-				
+
 						
 		</section>
 		
