@@ -2,25 +2,19 @@
 <!ATTLIST menu xmlns CDATA #FIXED ''>
 
 <!ELEMENT category (type,fooditem+)>
-<!ATTLIST category xmlns CDATA #FIXED ''>
 
 <!ELEMENT type (#PCDATA)>
-<!ATTLIST type xmlns CDATA #FIXED ''>
 
 <!ELEMENT fooditem (AvgRating,Cuisine,Description,FoodName,ItemCode, PriceForFull,PriceForHalf,TimeOfServe, Image?)>
-<!ATTLIST fooditem xmlns CDATA #FIXED ''>
 
 <!ELEMENT AvgRating (#PCDATA)>
-<!ATTLIST AvgRating xmlns CDATA #FIXED ''>
 
 <!ELEMENT Cuisine (#PCDATA)>
 <!ATTLIST Cuisine  xmlns CDATA #FIXED ''>
 
 <!ELEMENT Description (#PCDATA)>
-<!ATTLIST Description xmlns CDATA #FIXED ''>
 
 <!ELEMENT FoodName (#PCDATA)>
-<!ATTLIST FoodName xmlns CDATA #FIXED ''>
 
 <!ELEMENT ItemCode (#PCDATA)>
 <!ATTLIST ItemCode xmlns CDATA #FIXED ''>

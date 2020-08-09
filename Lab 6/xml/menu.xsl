@@ -7,7 +7,7 @@
                 <!--BOOTSTRAP LIBRARIES-->
                 <style>
                     body {
-                        background-image: url("chefimg.png");
+                        background-image: url("bgimg.png");
                         background-attachment: fixed; /* Center the image */
                         
                     }
@@ -48,7 +48,6 @@
                                             </img>
                                         </xsl:if>                                      
                                         
-
 
                                             <p>
                                             <xsl:value-of select="Description"/>
