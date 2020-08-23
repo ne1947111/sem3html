@@ -21,6 +21,7 @@
                 <div style="width:60%; margin:auto; margin-top:60px; padding:40px; background-color:#FFFFFFDD; text-align:center; border-radius:5px;">
                     <h1 align="center" >Complete Menu</h1> 
                     <b> <a href="../menu.html"> Click here </a> to go back </b> <br/> <br/>
+                    <b> <a href="./employee.xml"> Click here </a> to view the employee details </b> <br/> <br/>
                     <xsl:for-each select="menu">
                             
                             <xsl:for-each select="category">

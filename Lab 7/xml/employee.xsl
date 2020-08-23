@@ -31,7 +31,15 @@
     <body style="font-family:Arial; font-size:12pt;">
         <div style="width:60%; margin:auto; margin-top:60px; padding:40px; background-color:#FFFFFFDD; text-align:center; border-radius:5px;">
             <h1 align="center" >Complete Menu</h1> 
-            <b> <a href="../menu.html"> Click here </a> to go back </b> <br/> <br/>
+            <b> <a href="../menu.html"> Click here </a> to go back to home page </b> <br/> <br/>
+
+            <b> <a href="../menu.html"> Click here </a> to view special chefs </b> <br/> <br/>
+
+            <b> <a href="../menu.html"> Click here </a> to view our managers </b> <br/> <br/>
+
+            <b> <a href="../menu.html"> Click here </a> to view Main Course Menu </b> <br/> <br/>
+
+            <b> <a href="../menu.html"> Click here </a> to view our Special Desserts </b> <br/> <br/>
 
             <xsl:for-each select="employee">
                     <div style="background-color:#a8a58aAA; padding:15px; border-radius:5px;">

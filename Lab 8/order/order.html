@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title Page-->
+    <title>Order</title>
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <link href="css/main.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" href="../form/css/main.css">
+
+</head>
+
+<body style="background-image: url(../images/rest1.jpg); background-attachment: fixed;">
+
+
+
+    <div class="page-wrappers p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title" style="margin-bottom:10px;"> <strong> Make your Order </strong></h2>
+                    Kindly fill in your online details in the below given form.<br>
+                    Our customer executive will call you soon to confirm order and to get more details. <br>
+                    Only <b>Food Combos </b> are available due to the pandemic situation. 
+
+                    <br/> <br/>
+                    <hr> 
+                    <form style="margin-top: 10px;">
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Name *</label>
+                                    <input class="input--style-4" type="text" name="first_name" placeholder="Your Name Here" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Date *</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4" style="height:51px" type="date" name="orderdate" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Time *</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4" type="time" name="ordertime" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Phone Number *</label>
+                                    <input class="input--style-4" type="tel" name="phone" placeholder="Eg: 9747244280" pattern="[7-9]{1}[0-9]{9}" required>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Order Type</label>
+                                    <div class="p-t-10">
+                                        <label class="radio-container m-r-45">Takeaway
+                                            <input type="radio" checked="checked" name="ordertype">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Delivery
+                                            <input type="radio" name="ordertype">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="input-group">
+                            <label class="label">Address</label>
+                            <div class="input-group">
+                                <textarea class="input--style-4" style="background-color: #F6F6F6;" id="w3review" name="w3review" rows="4" cols="50"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="row row-space">
+                            <div class="col-2"> 
+                                <div class="input-group">
+                                    <label class="label">Food combo *</label>
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="subject" required>
+                                            <option disabled="disabled" selected="selected">Choose order</option>
+                                            <option>Chappathi & Rajma Masala</option>
+                                            <option>Chappathi & Gobi Masala </option>
+                                            <option>Chappathi & Jeera Aloo</option>
+                                            <option>Perotta & Mushroom Masala</option>
+                                            <option>Perotta & Veg Kadai</option>
+                                            <option>Perotta & Gobi Masala</option>
+                                            <option>Perotta & Paneer Masala</option>
+                                            <option>Naan & Paneer Masala</option>
+                                            <option>Naan & Veg Kadai</option>
+                                            
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label"> Quantity </label>
+                                    <input style="margin-top: 20px;" type="range" id="points" name="points" min="1" value="1" max="5">
+                                </div>
+                            </div>
+                        </div>
+
+                        <br> 
+                        <div class="row row-space">
+                            <div class="input-group">
+                                <label class="label">Other Details  </label>
+                                <div class="p-t-10">
+                                    <label class="radio-container">Multiple order &nbsp;
+                                        <input type="checkbox" name="ordertype">
+                                        <span class="squaremark"></span>
+                                    </label>
+                                    <label class="radio-container">Urgent &nbsp;
+                                        <input type="checkbox" name="ordertype">
+                                        <span class="squaremark"></span>
+                                    </label>
+                                    <label class="radio-container">Plastic-free Packing
+                                        <input type="checkbox" name="ordertype">
+                                        <span class="squaremark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">One Time Password</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4" id="otp" type="password" name="phone" placeholder="Enter OTP Here">
+                                        <i class="zmdi zmdi-eye-off input-icon" onclick="ShowHidePassword()"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <label class="label">Enter OTP to confirm order</label>
+
+                                <button class="btn btn--radius-2 btn--green" onclick="sendOTP()">Send OTP</button>
+                            </div>
+                        </div>
+
+                        
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                            <button class="btn btn--radius-2 btn--reset" type="reset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+    <script src="js/global.js"></script>
+
+    <script>
+        function ShowHidePassword(){
+            var x = document.getElementById("otp");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+
+        function sendOTP(){
+            window.alert("OTP is sent!");
+        }
+    </script>
+
+</body>
+
+</html>
