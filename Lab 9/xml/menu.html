@@ -1,0 +1,192 @@
+<html> 
+    <head>
+        <title> Complete Menu | NaiCafe </title>
+        <!--BOOTSTRAP LIBRARIES-->
+        <style>
+            body {
+                background-image: url("bgimg.png");
+                background-attachment: fixed; /* Center the image */
+                
+            }
+
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                padding:10px;
+            }
+            th{
+                background-color:#FFFFFF99;
+            }
+            tr{
+                background-color:#FFFFFF55;
+            }
+
+        </style>
+        
+    </head>
+
+    <body  style="font-family:Arial;font-size:12pt;"> 
+
+        <div id= "domcontent" style="width:60%; margin:auto; margin-top:60px; padding:40px; background-color:#FFFFFFDD; text-align:center; border-radius:5px;">
+        </div>
+
+
+
+        <script>
+            function loadXML(callback) {   
+                var xobj = new XMLHttpRequest();
+                xobj.overrideMimeType("application/xml");
+                xobj.open('GET', 'menu.xml', true); 
+                xobj.onreadystatechange = function () {
+                    if (xobj.readyState == 4 && xobj.status == "200") {
+                        // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+                        callback(xobj.responseText);
+                    }
+                };
+                xobj.send();  
+            }
+
+            
+            function loadAndDisplayXML(){
+                loadXML(function(response) {
+                    content = "";
+
+                    parser = new DOMParser();
+                    xmlfile = parser.parseFromString(response, "text/xml");
+
+                    content += '<h1 align="center" >Complete Menu</h1>';
+                    content += '<b> <a href="../menu.html"> Click here </a> to go back </b> <br/> <br/>';
+
+
+                    if(isParseError(xmlfile)) {
+                        window.alert("There are errors in the Document.\nKindly wait as we rectify the database");
+                        content+="We failed to load the retrieve the contents from the database. <br/> Sorry for the inconvienience <br/>";
+                        content+="<button onclick='buttonClicked()'> Load Corrupted XML </button>"
+                        document.getElementById("domcontent").innerHTML = content;
+
+                    }
+
+
+                    x = xmlfile.getElementsByTagName('category');
+
+                    
+
+                    for(i=0; i<x.length; i++){
+                        content+= '<div style="background-color:#a8a58aAA; padding:15px; border-radius:5px;">';
+                            content+= '<div style="background-color:#0c8528;color:white;padding:4px; margin-top:1em; margin-bottom:1em; font-size:18px;">';
+                                content+= '<b>';
+                                content+= x[i].childNodes[0].childNodes[0].nodeValue;
+                                content+= '</b> <br/>';
+                            content+= '</div>';
+
+                            for(j=1; j<x[i].childNodes.length; j++){
+                                a = x[i].childNodes[j];
+                                fooditem = {
+                                    rating : a.childNodes[0].childNodes[0].nodeValue,
+                                    cuisine : a.childNodes[1].childNodes[0].nodeValue,
+                                    description : a.childNodes[2].childNodes[0].nodeValue,
+                                    name : a.childNodes[3].childNodes[0].nodeValue,
+                                    halfprice : a.childNodes[5].childNodes[0].nodeValue,
+                                    fullprice : a.childNodes[6].childNodes[0].nodeValue,
+                                    time : a.childNodes[7].childNodes[0].nodeValue,
+                                    img : a.childNodes[8].childNodes[0].nodeValue
+                                };
+
+                                content+='<div style="background-color:#61300b ;color:white;padding:4px">';
+                                    content+='<span style="font-weight:bold">';
+                                    content+=fooditem["name"]+" - ";
+                                    content+='</span>';
+
+                                    content+='Rs. '+fooditem["halfprice"] + '/' + fooditem["fullprice"];
+                                    content+='<span style="float:right"> ' + fooditem["rating"] + '   ⭐ </span>'
+                                content+='</div>';
+
+                                content+='<div style="margin-bottom:1em;font-size:10pt; background-color:#98957aCC; border-bottom-right-radius:10px; border-bottom-left-radius:10px; padding:20px;">';
+                                    if(fooditem["img"]!="."){
+                                        content+='<img style="width:200px; border-radius:10px;" src="../images/menuitems/' + fooditem["img"] + '"></img>';
+                                    }
+
+                                    content+='<p>'+fooditem["description"]+'</p>';
+                                    content+='<span> This <b> '+ fooditem["cuisine"] +'  </b> dish is Served for <b>' + fooditem["time"] + ' </b> </span> <br/>';
+                                content+'</div>';
+                                content+='</div>';
+                                content+='<hr/>';
+                            }
+
+                            content+='</div>';
+
+                    }
+                    document.getElementById("domcontent").innerHTML = content;
+                });
+            }
+
+            loadAndDisplayXML()
+
+            function isParseError(parsedDocument) {
+                // parser and parsererrorNS could be cached on startup for efficiency
+                var parser = new DOMParser(),
+                    errorneousParse = parser.parseFromString('<', 'application/xml'),
+                    parsererrorNS = errorneousParse.getElementsByTagName("parsererror")[0].namespaceURI;
+
+                if (parsererrorNS === 'http://www.w3.org/1999/xhtml') {
+                    // In PhantomJS the parseerror element doesn't seem to have a special namespace, so we are just guessing here :(
+                    return parsedDocument.getElementsByTagName("parsererror").length > 0;
+                }
+
+                return parsedDocument.getElementsByTagNameNS(parsererrorNS, 'parsererror').length > 0;
+            };
+
+            function buttonClicked(){
+                loadCorruptedXML();
+            }
+
+            function loadCorruptedXML(){
+                content = "";
+                content += '<h1 align="center" >Complete Menu</h1>';
+                content += '<b> <a href="./menu.html"> Click here </a> to refresh page </b> <br/> <br/>';
+                content += '<b> <a href="../menu.html"> Click here </a> to go back </b> <br/> <br/>';
+
+                var xobj = new XMLHttpRequest();
+                xobj.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        errorFunction(this);
+                    }
+                };
+                xobj.open("GET", "menu.xml", true);
+                xobj.send();
+                
+                
+                document.getElementById("domcontent").innerHTML = content;
+            }
+
+            function errorFunction(xml) {
+                var parser, xmlDoc;
+                parser = new DOMParser();
+                xmlDoc = parser.parseFromString(xml.responseText,"text/xml");
+                document.getElementById("domcontent").innerHTML +=
+                errorLoop(xmlDoc.documentElement);
+            }
+
+            function errorLoop(x) {
+                var i, y, xLen, txt;
+                txt = "";
+                x = x.childNodes;
+                xLen = x.length;
+                for (i = 0; i < xLen ;i++) {
+                    y = x[i];
+                    if (y.nodeType != 3) {
+                    if (y.childNodes[0] != undefined) {
+                        txt += errorLoop(y);
+                    }
+                    } else {
+                    txt += y.nodeValue + "<br>";
+                    }
+                }
+                return txt;
+            }
+
+            
+        </script>
+
+    </body> 
+</html>

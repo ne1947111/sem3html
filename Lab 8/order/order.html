@@ -32,12 +32,13 @@
 
                     <br/> <br/>
                     <hr> 
-                    <form style="margin-top: 10px;">
+                    <form id="orderform" style="margin-top: 10px;">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Name *</label>
-                                    <input class="input--style-4" type="text" name="first_name" placeholder="Your Name Here" required>
+                                    <input class="input--style-4" id="name" type="text" name="first_name" onfocusout="validateName()" placeholder="Your Name Here" required>
+                                    <span id="nameerror" style="color:orange; font-size:10pt;"> &nbsp; </span>
                                 </div>
                             </div>
                         </div>
@@ -46,7 +47,8 @@
                                 <div class="input-group">
                                     <label class="label">Date *</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" style="height:51px" type="date" name="orderdate" required>
+                                        <input class="input--style-4" style="height:51px" type="date" id="orderdate" required>
+                                        <span id="dateerror" style="color:orange; font-size:10pt;"> &nbsp; </span>
                                     </div>
                                 </div>
                             </div>
@@ -54,7 +56,8 @@
                                 <div class="input-group">
                                     <label class="label">Time *</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="time" name="ordertime" required>
+                                        <input class="input--style-4" type="time" id="ordertime" required>
+                                        <span id="timeerror" style="color:orange; font-size:10pt;"> &nbsp; </span>
                                     </div>
                                 </div>
                             </div>
@@ -63,19 +66,20 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Phone Number *</label>
-                                    <input class="input--style-4" type="tel" name="phone" placeholder="Eg: 9747244280" pattern="[7-9]{1}[0-9]{9}" required>
+                                    <input class="input--style-4" type="tel" name="phoneNumber" placeholder="Eg: 9747244280" onkeyup="validatePhone()" required>
+                                    <span id="phoneerror" style="color:orange; font-size:10pt;"> &nbsp; </span>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Order Type</label>
                                     <div class="p-t-10">
-                                        <label class="radio-container m-r-45">Takeaway
-                                            <input type="radio" checked="checked" name="ordertype">
+                                        <label class="radio-container m-r-45">Delivery
+                                            <input type="radio" checked="checked" onclick="orderTypeModification('delivery')" id="takeaway" name="ordertype">
                                             <span class="checkmark"></span>
                                         </label>
-                                        <label class="radio-container">Delivery
-                                            <input type="radio" name="ordertype">
+                                        <label class="radio-container">Takeaway
+                                            <input type="radio" onclick="orderTypeModification('takeaway')" name="ordertype">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -87,7 +91,8 @@
                         <div class="input-group">
                             <label class="label">Address</label>
                             <div class="input-group">
-                                <textarea class="input--style-4" style="background-color: #F6F6F6;" id="w3review" name="w3review" rows="4" cols="50"></textarea>
+                                <textarea onfocusout="validateAddress()" style="padding:20px; padding-bottom:10px; padding-top:10px; font-size: 11pt; line-height: 150%;" class="input--style-4" style="background-color: #F6F6F6;" id="address" rows="4" cols="50"></textarea> <br>
+                                <span id="addresserror" style="color:orange; font-size:10pt;"> &nbsp; </span>
                             </div>
                         </div>
 
@@ -97,7 +102,7 @@
                                 <div class="input-group">
                                     <label class="label">Food combo *</label>
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject" required>
+                                        <select id="foodid" name="subject" required>
                                             <option disabled="disabled" selected="selected">Choose order</option>
                                             <option>Chappathi & Rajma Masala</option>
                                             <option>Chappathi & Gobi Masala </option>
@@ -111,8 +116,11 @@
                                             
                                         </select>
                                         <div class="select-dropdown"></div>
+                                        <span id="fooderror" style="color:orange; font-size:10pt;"> &nbsp; </span>
+
                                     </div>
                                 </div>
+
                             </div>
 
                             <div class="col-2">
@@ -147,6 +155,23 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
+                                    <label class="label">Email ID *</label>
+                                    <input class="input--style-4" type="email" name="email" placeholder="Eg: nivedned@gmail.com" onkeyup="validateEmail()" required>
+                                    <span id="emailerror" style="color:orange; font-size:10pt;"> &nbsp; </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row row-space">
+                            
+                            <div class="col-2">
+                                <label class="label">Enter OTP to confirm order</label>
+
+                                <button class="btn btn--radius-2 btn--green" type="button" onclick="sendOTP()">Send OTP</button>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="input-group">
                                     <label class="label">One Time Password</label>
                                     <div class="input-group-icon">
                                         <input class="input--style-4" id="otp" type="password" name="phone" placeholder="Enter OTP Here">
@@ -154,17 +179,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-2">
-                                <label class="label">Enter OTP to confirm order</label>
-
-                                <button class="btn btn--radius-2 btn--green" onclick="sendOTP()">Send OTP</button>
-                            </div>
                         </div>
 
                         
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
-                            <button class="btn btn--radius-2 btn--reset" type="reset">Reset</button>
+                            <button class="btn btn--radius-2 btn--blue" onclick="submitForm()" type="button">Place Order</button>
+                            <button class="btn btn--radius-2 btn--reset" type="reset">Clear Form</button>
                         </div>
                     </form>
                 </div>
@@ -179,6 +199,13 @@
     <script src="js/global.js"></script>
 
     <script>
+
+        var otp;
+        var ordernumber = Math.ceil(Math.random()*1000);
+        var deladdress;
+
+        validateStatus = false;
+
         function ShowHidePassword(){
             var x = document.getElementById("otp");
             if (x.type === "password") {
@@ -188,8 +215,309 @@
             }
         }
 
+
+        function startOrEndWithSpace(str){
+            return !(str.length==str.trim().length);
+        }
+
+        // FUNCTION TO VALIDATE THE NAME
+        function validateName(){
+            id = document.getElementById("name");
+            content = id.value;
+            validateStatus = false;
+
+
+            if(content==""){
+                showError("name", "Name cannot be empty!");
+                return false;
+            }
+
+            if(startOrEndWithSpace(content)){
+                showError("name", "Starts/Ends with spaces. Please check again!");
+                return false;
+            }
+
+            pattern = /.*[0-9].*/;
+            if(content.match(pattern)){
+                showError("name", "Name cannot contain numbers!");
+                return false;
+            }
+
+            pattern = /.*\s.*/;
+            if(!content.match(pattern)){
+                showError("name", "Kindly provide your full name!");
+                return false;
+            }
+
+            pattern = /[^a-zA-Z\s:]/;
+            if(content.match(pattern)){
+                showError("name", "Name cannot contain special symbols/numbers!");
+                return false;
+            }
+
+            pattern = /\s{2,}/;
+            if(content.match(pattern)){
+                showError("name", "Name contains consecutive spaces");
+                return false;
+            }
+
+            showError("name", "&nbsp;");
+            return true;
+        }
+
+        // Phone Number Validation
+        function validatePhone(){
+            id = document.getElementsByName("phoneNumber")[0];
+            content = id.value;
+            if(content==""){
+                showError("phone", "Phone Number cannot be empty!");
+                return false;
+            }
+
+            validateStatus = false;
+
+
+            pattern = /.*\s.*/;
+            if(content.match(pattern)){
+                showError("phone", "Phone number cannot have spaces!");
+                return false;
+            }
+
+            pattern = /.*\D.*/;
+            if(content.match(pattern)){
+                showError("phone", "Phone number can have only digits");
+                return false;
+            }
+
+            pattern = /[7-9]{1}[0-9]{9}/
+            if(!content.match(pattern)){
+                showError("phone", "Enter a valid Indian phone number");
+                return false;
+            }
+
+            pattern = /^\d{11,}$/;
+            if(content.match(pattern)){
+                showError("phone", "Phone number can have only maximum 10 digits");
+                return false;
+            }
+
+            showError("phone", "&nbsp;");
+            return true;
+        }
+
+        // Order Type Modification
+        function orderTypeModification(otype){
+            if(otype=="delivery")
+                enableAddressColumn();
+            else
+                disableAddressColumn();
+        }
+
+        function enableAddressColumn(){
+            console.log("Address is enabled!");
+            id.value=deladdress;
+            id = document.getElementById("address");
+            id.disabled = false;
+        }
+
+        function disableAddressColumn(){
+            console.log("Address is disabled!");
+            id = document.getElementById("address");
+            deladdress = id.value;
+            id.value="NaiCafe,\nOpposite to Christ University Backgate,\nSG Palaya, Bengaluru\n560029";
+            id.disabled = true;
+            console.log("Address is disabled!");
+            showError("address", "&nbsp;");
+        }
+
+        // Address Validation
+        function validateAddress(){
+            id = document.getElementById("address");
+            content = id.value;
+            validateStatus = false;
+
+            if(content==""){
+                showError("address", "Address cannot be empty!");
+                return false;
+            }
+
+            if(startOrEndWithSpace(content)){
+                showError("address", "Starts/Ends with spaces. Please check again!");
+                return false;
+            }
+
+            pattern = /.*\n.*\n.*/;
+            if(!content.match(pattern)){
+                showError("address", "Address must be atleast 3 lines");
+                return false;
+            }
+
+            pattern = /.*[\n ][1-6][0-9]{5}/;
+            if(!content.match(pattern)){
+                showError("address", "Address must end with a valid pincode");
+                return false;
+            }
+
+            if(content.length<25){
+                showError("address", "Adderss is too short! Add more details!");
+                return false;
+            }
+
+            showError("address", "&nbsp;");
+            return true;
+
+        }
+
+        // Email Validation
+        function validateEmail(){
+            id = document.getElementsByName("email")[0];
+            content = id.value;
+
+            validateStatus = false;
+
+            if(content==""){
+                showError("email", "Email cannot be empty!");
+                return false;
+            }
+
+            pattern = /.*\s.*/;
+            if(content.match(pattern)){
+                showError("email", "Phone number cannot have spaces!");
+                return false;
+            }
+
+            pattern = /^[a-zA-Z\d_@.]*$/;
+            if(!content.match(pattern)){
+                showError("email", "Emails could contain alphanumeric characters or underscore");
+                return false;
+            }
+
+            pattern = /^.*@.*@.*/;
+            if(content.match(pattern)){
+                showError("email", "Emails cannot contain more than one @ symbol");
+                return false;
+            }
+
+            pattern = /^.*\.{2}.*/;
+            if(content.match(pattern)){
+                showError("email", "Emails cannot contain consecutive . symbols");
+                return false;
+            }
+
+            pattern = /\S{5,}@\w{2,}[\.\w]*\.[a-z]{2,4}$/;
+            if(!content.match(pattern)){
+                showError("email", "Enter a valid email ID");
+                return false;
+            }
+
+            showError("email", "&nbsp;");
+            return true;
+        }
+
+        // Checks whether food item is selected
+        function validateFoodOrder(){
+            id = document.getElementById("foodid");
+            if(id.value=="Choose order"){
+                showError("food", "Food Item Must be selected!");
+                return false;
+            }
+            return true;
+        }
+
+        // Validates Date
+        function validateDate(){
+            id=document.getElementById("orderdate");
+            odt = id.value;
+            odt = new Date(odt);
+
+            console.log("ODT : ", odt);
+
+            if(odt==""){
+                showError("date", "Please provide a date"); 
+                return false;
+            }
+
+            showError("date", "&nbsp;");
+            return true;
+
+        }
+
+        // Validates Time
+        function validateTime(){
+            id=document.getElementById("ordertime");
+            odt = id.value;
+            console.log(odt);
+
+
+            if(odt==""){
+                showError("time", "Cannot be blank"); 
+                return false;
+            }
+
+            showError("time", "&nbsp;");
+            return true;
+        }
+
+
+        // IF ALL ARE CORRECT
         function sendOTP(){
-            window.alert("OTP is sent!");
+            cond = true;
+            if(!validateName())
+                cond=false;
+
+            if(!validatePhone())
+                cond=false;
+
+            if(!validateEmail())
+                cond=false;
+            
+            if(!validateAddress())
+                cond=false;
+
+            if(!validateFoodOrder())
+                cond=false;
+
+            if(!validateDate())
+                cond=false;
+
+            if(!validateTime())
+                cond=false;
+
+
+            if(cond){
+                otp = Math.random();
+                otp *= 1000000;
+                otp = Math.floor(otp);
+                window.alert("Your OTP is : "+otp);
+                validateStatus = true;
+            }
+            else{
+                window.alert("OTP cannot be sent as there are one/more errors.\nKindly recheck your order")
+            }
+        }
+
+        function submitForm(){
+            if(!validateStatus){
+                window.alert("Fill all the fields correctly\nand confirm OTP for placing order");
+                return;
+            }
+            if(document.getElementById("otp").value == otp){
+                window.alert("OTP Verification complete!\nYour order is placed!\nOrder Number is "+ordernumber);
+                ordernumber++;
+                document.getElementById("orderform").reset();
+
+            }
+            else{
+                window.alert("Invalid OTP! Try again!");
+            }
+        }
+
+
+        // ERROR FUNCTION
+
+        function showError(field, message){
+            var fl = document.getElementById(field+"error");
+            fl.innerHTML = message;
         }
     </script>
 
