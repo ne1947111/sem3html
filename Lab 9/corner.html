@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Resturant </title>
+		
+		<!--BOOTSTRAP LIBRARIES-->
+		<meta charset = "utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="form/css/main.css">
+
+
+		<style>	
+			.sec{
+				min-height:80vh;
+				text-align: center;
+				padding-left: 20vw;
+				padding-right:20vw;
+				padding-top: 5vh;
+				
+			}
+			html{scroll-behavior: smooth;}
+			.navbar { background-color: #484848; position:fixed; width:100%; z-index: 100000; }
+			.navbar .navbar-nav .nav-link { color: #fff; }
+			.navbar .navbar-nav .nav-link:hover { color: #fbc531; }
+			.navbar .navbar-nav .active > .nav-link { color: #fbc531; }
+
+			footer a.text-light:hover { color: #fed136!important; text-decoration: none; }
+			footer .cizgi { border-right: 1px solid #535e67; }
+			@media (max-width: 992px) { footer .cizgi { border-right: none; } }
+			
+			.checked {color: orange;}
+			
+			dd{font-size:16px; font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif"}
+			dt{color:#F0F0F0; font-size:18px;}	
+
+			img{
+				transition: 1s;
+			}
+			img:hover{
+				transform: scale(1.2);
+			}
+
+			li {
+				font: 1rem 'Fira Sans', sans-serif;
+    			margin-bottom: .5rem;
+			}
+
+			ol{
+				display:list-item;
+
+			}
+
+			ul{
+
+				display:list-item;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		
+		<header>
+			<!--- Navbar --->
+			<div id="nav-place">
+
+            </div>
+			<!--# Navbar #-->
+        </header>	
+
+
+		<section style="height:max-content; background-image: url('images/bg1.png'); background-size: cover; background-repeat: no-repeat; overflow:auto; padding-top:5vh; min-height:100vh;">
+		
+
+			<div style="text-align:center; margin: 40px; padding:20px; border-radius: 10px; min-height: 80vh; background-color: #FFFFFF99;"> 
+				<h1> Recipe Corner </h1>
+
+				<hr/>
+
+				<div>
+					<select id="foodid" onclick="categorySelected()" name="subject" required>
+				
+					</select>
+				</div>
+
+				<br/>
+
+				<div style="height: 650px; width:860px; border-radius: 20px; margin-left: auto; margin-right:auto; display:block;">
+ 
+					<div style="width:50%; height:100%; float:left; padding:20px; background-color:#733B2F; border-top-left-radius: 20px; border-bottom-left-radius: 20px;">
+						<div class="card" style="text-align:center; width:400px; border-width: 0px; display: block; background-color:#B67162; margin-left: auto; margin-right: auto; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; padding-left: -10px;">
+							<div class="card-body" style="background-color:lightyellow; height:420px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+								<h4 class="card-title"> <b id="categorydisplay"> Select an Item </b></h4>
+								<div class="card-text" id="radios" style="color:#666; margin-left: auto; padding-left: 50px; margin-right: auto; display:block; text-align: left;" >
+									Please select any categories <br/> to display available items
+								</div>
+							</div>
+							<img class="card-img-top" src="json/foodimage.png" alt="Card image" style="display: block; margin-left: auto; margin-right: auto; width: 64%; ">
+
+						</div>
+					</div>
+
+					<div style="width:50%; height:100%; float:right; background-color:lightslategray; padding:15px; vertical-align: middle; border-top-right-radius: 20px; border-bottom-right-radius:20px;">
+						<div class="card" style="text-align:center; width:400px; border-width: 0px; display: block; background-color:lightsteelblue; margin-left: auto; margin-right: auto; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; ">
+							<img class="card-img-top" src="json/chef.png" alt="Card image" style="display: block; margin-left: auto; margin-right: auto; width: 60%; ">
+							<div class="card-body" style="background-color:lightgreen; height:420px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+								<h4 class="card-title"> <b id="recipeheadingdisp"> Select an Item </b></h4>
+								<p class="card-text" style="text-align: left; height:360px; overflow-y:auto" id="foodrecipe">
+									Your recipe will be displayed here!
+								</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+
+				
+
+
+			</div>
+
+		</section>
+
+
+		
+		<script>
+			var cats;
+			var catselect;
+			var foods;
+
+            $(function(){
+              	$("#nav-place").load("../navbar.html");
+				loadJSON();
+            });
+
+			function loadJSON(){
+				loadFoodSelector();
+				
+			}
+
+			function loadFoodSelector(){
+				selectr = document.getElementById("foodid");
+				
+				str = '<option disabled="disabled" selected="selected">Select Item Type</option>';
+
+				$.getJSON("json/recipe.json", function(data){
+					cat = data["Categories"];
+					var categories = [];
+					$.each(cat, function(key, val){
+						var value = cat[key];
+						str+="<option> "+value['category']+"</option>";
+					});
+					selectr.innerHTML = str;
+
+					cats = cat;
+				});
+			
+			}
+	
+			function categorySelected(){
+				itm = document.getElementById("foodid");
+				disp = document.getElementById("categorydisplay");
+
+				disp.innerHTML = itm.value;
+				updateList(itm.value);
+
+			}
+
+			function updateList(cat){
+				$.each(cats, function(key, val){
+						var value = cats[key];
+						if(cat==value['category']){
+							catselect = value['Items'];
+							items = value['Items'];
+							str = "";
+							vs = document.getElementById("radios");
+							for(i in items){
+								str += '<input type="radio" onclick="updateRecipe()" name="fooditemselect" value="'+items[i]['itemname']+'"> '+items[i]['itemname']+'<br/> <br/>';
+							}
+							vs.innerHTML = str;
+						}
+				});
+			}
+
+			function updateRecipe(){
+				fooditemsele = $("input[name='fooditemselect']:checked").val();
+
+				document.getElementById("recipeheadingdisp").innerHTML = fooditemsele;
+
+				for(i in catselect){
+					itemname = catselect[i]['itemname'];
+					
+					if(fooditemsele == itemname){
+						itemrecipe = catselect[i]['Recipe'];
+						iteming = catselect[i]['Ingredients'];
+					}
+
+				}
+
+				str = "";
+				str += "<b style='color:black;'> INGREDIENTS </b> <br/>";
+				str += "<ul>";
+
+				console.log(iteming);
+				
+				for(i in iteming){
+					str += "<li>"
+					str += iteming[i];
+					str += "</li>";
+					console.log(iteming[i]);
+				}
+				str += "</ul>";
+
+				str += "<br/>";
+
+				str += "<b style='color:black;'> RECIPE </b> <br/>";
+
+				str += "<ol type='1'>";
+
+				for(i in itemrecipe){
+					str += "<li>"
+					str += itemrecipe[i];
+					str += "</li>";
+					console.log(itemrecipe[i]);
+				}
+
+				str += "</ol>";				
+				
+				document.getElementById("foodrecipe").innerHTML = str;
+			}
+		</script>
+		
+        
+
+    
+    </body>
+</html>
