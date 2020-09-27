@@ -1,0 +1,32 @@
+<!ELEMENT menu (category)+>
+<!ATTLIST menu xmlns CDATA #FIXED ''>
+
+<!ELEMENT category (type,fooditem+)>
+
+<!ELEMENT type (#PCDATA)>
+
+<!ELEMENT fooditem (AvgRating,Cuisine,Description,FoodName,ItemCode, PriceForFull,PriceForHalf,TimeOfServe, Image?)>
+
+<!ELEMENT AvgRating (#PCDATA)>
+
+<!ELEMENT Cuisine (#PCDATA)>
+<!ATTLIST Cuisine  xmlns CDATA #FIXED ''>
+
+<!ELEMENT Description (#PCDATA)>
+
+<!ELEMENT FoodName (#PCDATA)>
+
+<!ELEMENT ItemCode (#PCDATA)>
+<!ATTLIST ItemCode xmlns CDATA #FIXED ''>
+
+<!ELEMENT PriceForFull (#PCDATA)>
+<!ATTLIST PriceForFull xmlns CDATA #FIXED '' null NMTOKEN #IMPLIED>
+
+<!ELEMENT PriceForHalf (#PCDATA)>
+<!ATTLIST PriceForHalf xmlns CDATA #FIXED ''>
+
+<!ELEMENT TimeOfServe (#PCDATA)>
+<!ATTLIST TimeOfServe xmlns CDATA #FIXED ''>
+
+<!ELEMENT Image (#PCDATA)>
+<!ATTLIST Image xmlns CDATA #FIXED ''>

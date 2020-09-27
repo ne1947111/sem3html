@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="employee.xsl"?>
+<!DOCTYPE employee [
+
+<!ELEMENT employee (chefs,others,managers)>
+<!ATTLIST employee xmlns CDATA #FIXED ''>
+
+<!ELEMENT chefs (specials,common)>
+<!ATTLIST chefs xmlns CDATA #FIXED ''>
+
+<!ELEMENT others (waiters,cleaners)>
+<!ATTLIST others xmlns CDATA #FIXED ''>
+
+<!ELEMENT managers (person)+>
+<!ATTLIST managers xmlns CDATA #FIXED ''>
+
+<!ELEMENT specials (person)+>
+<!ATTLIST specials xmlns CDATA #FIXED ''>
+
+<!ELEMENT common (person)+>
+<!ATTLIST common xmlns CDATA #FIXED ''>
+
+<!ELEMENT waiters (person)+>
+<!ATTLIST waiters xmlns CDATA #FIXED ''>
+
+<!ELEMENT cleaners (person)+>
+<!ATTLIST cleaners xmlns CDATA #FIXED ''>
+
+<!ELEMENT head (person)>
+<!ATTLIST head xmlns CDATA #FIXED ''>
+
+<!ELEMENT cashier (person)+>
+<!ATTLIST cashier xmlns CDATA #FIXED ''>
+
+<!ELEMENT person (name,age,(role|salary)+,experience,gender,contact?)>
+<!ATTLIST person xmlns CDATA #FIXED ''>
+
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST name xmlns CDATA #FIXED ''>
+
+<!ELEMENT age (#PCDATA)>
+<!ATTLIST age xmlns CDATA #FIXED ''>
+
+<!ELEMENT role (#PCDATA)>
+<!ATTLIST role xmlns CDATA #FIXED ''>
+
+<!ELEMENT salary (#PCDATA)>
+<!ATTLIST salary xmlns CDATA #FIXED ''>
+
+<!ELEMENT experience (#PCDATA)>
+<!ATTLIST experience xmlns CDATA #FIXED ''>
+
+<!ELEMENT gender (#PCDATA)>
+<!ATTLIST gender gender (Male|Female|Transgender) #IMPLIED>
+
+<!ELEMENT contact (#PCDATA)>
+<!ATTLIST contact xmlns CDATA #FIXED ''>
+]>
+
+<employee>
+    <chefs>
+        <specials>
+            <person>
+                <name> Naren </name>
+                <age> 25 </age>
+                <role> Chinese Specialist </role>
+                <salary> 35000 </salary>
+                <experience> 3 Years </experience>
+                <gender> Male </gender>
+                <contact>9876543210</contact>
+            </person>
+            <person>
+                <name> Sanju </name>
+                <age> 22 </age>
+                <role> Dessert Specialist </role>
+                <salary> 25000 </salary>
+                <experience> 2 Years </experience>
+                <gender> Male </gender>
+                <contact>9876545210</contact>
+            </person>
+        </specials>
+        <common>
+            <person>
+                <name> Sid </name>
+                <age> 25 </age>
+                <salary> 20000 </salary>
+                <experience> 1 Year </experience>
+                <gender> Male </gender>
+            </person>
+            <person>
+                <name> Anjali </name>
+                <age> 35 </age>
+                <salary> 22000 </salary>
+                <experience> 2 Year </experience>
+                <gender> Female </gender>
+            </person>
+            <person>
+                <name> Davis </name>
+                <age> 23 </age>
+                <salary> 22000 </salary>
+                <experience> 2 Year </experience>
+                <gender> Male </gender>
+            </person>
+        </common>
+    </chefs>
+
+    <others>
+        <waiters>
+            <person>
+                <name> Penny </name>
+                <age> 30 </age>
+                <salary> 22000 </salary>
+                <experience> 5 Year </experience>
+                <gender> Female </gender>
+            </person>
+            <person>
+                <name> Caroline </name>
+                <age> 28 </age>
+                <salary> 16500 </salary>
+                <experience> 1 Year </experience>
+                <gender> Female </gender>
+            </person>
+            <person>
+                <name> Max </name>
+                <age> 29 </age>
+                <salary> 25000 </salary>
+                <experience> 10 Year </experience>
+                <gender> Female </gender>
+            </person>
+            <person>
+                <name> Han </name>
+                <age> 23 </age>
+                <salary> 22000 </salary>
+                <experience> 6 Year </experience>
+                <gender> Male </gender>
+            </person>
+        </waiters>
+        <cleaners>
+            <person>
+                <name> Jo </name>
+                <age> 20 </age>
+                <salary> 10000 </salary>
+                <experience> 1 Year </experience>
+                <gender> Male </gender>
+            </person>
+            <person>
+                <name> Alex </name>
+                <age> 27 </age>
+                <salary> 12000 </salary>
+                <experience> 2 Year </experience>
+                <gender> Male </gender>
+            </person>
+        </cleaners>
+    </others>
+    
+    <managers>
+        <person>
+            <name> Tarun </name>
+            <age> 25 </age>
+            <role> Supervisor/Manager </role>
+            <salary> 35000 </salary>
+            <experience> 3 Years </experience>
+            <gender> Male </gender>
+            <contact>9876843210</contact>
+        </person>
+        <person>
+            <name> Ashok </name>
+            <age> 38 </age>
+            <role> Supervisor/Cashier </role>
+            <salary> 28000 </salary>
+            <experience> 6 Year </experience>
+            <gender> Male </gender>
+        </person>
+        <person>
+            <name> Anna </name>
+            <age> 35 </age>
+            <role> Supervisor/Cashier </role>
+            <salary> 22000 </salary>
+            <experience> 2 Years </experience>
+            <gender> Female </gender>
+        </person>
+    </managers>
+</employee>
