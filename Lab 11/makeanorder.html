@@ -1,0 +1,461 @@
+<html>
+    <head>
+        <title> Make an Order!! </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+		<link rel="stylesheet" href="css/aos.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/boxicons.min.css">
+		<link rel="stylesheet" href="css/icofont.min.css">
+		<link rel="stylesheet" href="css/owl.carousel.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/venobox.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-animate.js"></script>
+        <script src="makeorder/xml2json.js"></script>
+        <style>
+            html{scroll-behavior: smooth;}
+			.navbar { background-color: #222222ED; position:fixed; width:100%; z-index: 100000; }
+			.navbar .navbar-nav .nav-link { color: #fff; }
+			.navbar .navbar-nav .nav-link:hover { color: #fbc531; }
+			.navbar .navbar-nav .active > .nav-link { color: #fbc531; }
+
+            table, th , td {
+                border-collapse: collapse;
+                padding: 5px;
+                font-size:11pt;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .blackbg{
+				
+                background-image:url('images/bg3.jpg');
+                background-color: #33333300;
+            }
+
+            .validfield{
+                content : "Yes ✔️";
+            }
+
+            .invalidfield{
+                content : "No ❎";
+            }
+
+            div{
+                font-size: 11pt;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            /* After the transition this will be the only class remaining */
+            .fadein {
+            -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+            -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+            -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+            transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+            opacity: 1; /* Default value but added for clarity */
+            }
+
+            /* Initial state when showing */
+            .fadein.ng-hide-remove {
+            opacity: 0;
+            display: block !important;
+            }
+
+            /* Will transition towards this state */
+            .fadein.ng-hide-remove.ng-hide-remove-active {
+                opacity: 1;
+            }
+
+            .box {
+            background: #5FCF80;
+            width: 12px;
+            height: 12px;
+            padding:0px;
+            margin:0px;
+            }
+
+            .circle {
+            -webkit-transform: rotate(360deg);
+            background: #A32126;
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            }
+
+            .rotate {
+            -webkit-transition: all 1s ease-in-out;
+                -moz-transition: all 1s ease-in-out;
+                -o-transition: all 1s ease-in-out;
+                transition: all 1s ease-in-out;
+            }
+
+            .text-center {
+            text-align: center;
+            }
+            li span {
+            float: right;
+            cursor: pointer;
+            }
+
+            .fade {
+            transition: 1s linear all;
+            -webkit-transition: 1s linear all;
+            }
+
+            .fade.ng-enter {
+            opacity: 0;
+            }
+
+            .fade.ng-enter.ng-enter-active {
+            opacity: 1;
+            }
+
+            .fade.ng-leave {
+            opacity: 1;
+            }
+
+            .fade.ng-leave.ng-leave-active {
+            opacity: 0;
+            }
+
+        </style>
+    </head>
+
+    <body ng-app="my-App" style="background-image: url(makeorder/bg.png);">
+        
+        <header>
+            <!--- Navbar --->
+			<div id="nav-place">
+
+            </div>
+			<!--# Navbar #-->
+        </header>
+
+        <br> <br> <br> 
+
+        <div style="height: 95vh;">
+            <div class="container-fluid"> 
+                <div style="position:absolute; top:250px; left:200px;" ng-init="myText='Dont wait for the Queues.'; line1='Use Our Online Booking System to'; line2='Ensure your Seats Today!'" >
+                    <h1 ng-bind="myText"> </h1>
+                    <h2 ng-bind="line1"> </h2>
+                    <h2 ng-bind="line2"> </h2>
+                    <div ng-controller="onlineBookingDescription" style="width: 600px;">
+                        {{reason + "\n" + "solution"}}
+                    </div>
+
+                    <br/>
+
+                    <a href="makeanorder.html#itemmenu"> <button type="button" class="btn btn-dark">View Menu</button> </a>
+                    <a href="makeanorder.html#itemorder"> <button type="button" class="btn btn-warning">Book Table Now</button> </a>
+                    
+                </div>
+
+
+                <div ng-init="myVar='./makeorder/tableimage.png'">
+                    <img ng-src="{{myVar}}" style="width: 700px; position: absolute; top:150px; left: 1000px;">
+                </div>
+            </div>
+        </div>
+
+        <br/>
+
+        <div id="itemmenu" style="height: 95vh; background-color: #333;">
+            <br/> <br/> <br/> 
+            <div class="container-fluid d-flex justify-content-around">
+                <div ng-controller="menuCtrl">
+                    <table style="background-color: #FAFAFA; min-width: 600px;">
+                        <tr> <td colspan="4" style="padding: 20px; text-align: center;">  <b> MENU OF ITEMS </b> </td> </tr>
+                        
+                        <tr>
+                            <td colspan="2" style="text-align: right; background-color: #BBB;"> &nbsp; </td>
+                            <td colspan="2" style="background-color: #BBB;">
+                                <input ng-model="search" placeholder="Search for items" style="width: 100%; padding:5px; background-color: #BBB; font-size: 10pt; border-width: 0px;"> </input>
+                            </td>
+                        </tr>
+                        
+                        <tr style="text-align: center; background-color: #fbc531; ">
+                            <th ng-click="orderByMe('SlNo')"> Item Code </th>
+                            <th ng-click="orderByMe('Type')"> Type </th>
+                            <th ng-click="orderByMe('Name')"> Name </th>
+                            <th ng-click="orderByMe('Price')"> Price </th>
+                        </tr>
+                        <tr ng-repeat="x in menu.items | filter:search | orderBy:menuOrderBy">
+                            <td ng-if="$odd" style="background: #f1f1f1; padding: 10px; padding-left: 20px; padding-right: 20px;"> {{ x.SlNo }} </td>
+                            <td ng-if="$odd" style="background: #f1f1f1; padding: 10px; padding-left: 40px; padding-right: 40px;"> {{ x.Type }} </td>
+                            <td ng-if="$odd" style="background: #f1f1f1; padding: 10px; font-weight: bold; padding-left: 40px; padding-right: 40px;"> {{ x.Name | uppercase }} </td>
+                            <td ng-if="$odd" style="background: #f1f1f1;  padding: 10px; padding-left: 20px; padding-right: 20px;"> ₹ {{ x.Price }} </td>
+
+                            <td ng-if="$even" style="background: #FFF; padding: 10px; padding-left: 20px; padding-right: 20px;"> {{ x.SlNo }} </td>
+                            <td ng-if="$even" style="background: #FFF; padding: 10px; padding-left: 40px; padding-right: 40px;"> {{ x.Type }} </td>
+                            <td ng-if="$even" style="background: #FFF; padding: 10px; font-weight: bold; padding-left: 40px; padding-right: 40px;"> {{ x.Name | uppercase }} </td>
+                            <td ng-if="$even" style="background: #FFF;  padding: 10px; padding-left: 20px; padding-right: 20px;"> ₹ {{ x.Price }} </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            
+            
+
+        </div>
+
+        <div class="blackbg" id="itemorder" style="height: 95vh;">
+
+            <br/> <br/> 
+
+            <section id="book-a-table" style="background-image:url(images/bg1.jpg)" class="book-a-table">
+				<div class="container" >
+					<div class="row">
+				
+						<div class="col-lg-8">
+						<div class="section-title">
+							<h2> <b> Reservation </b></h2>
+							<p style="color: white;">Book a Table</p>
+						</div>
+				
+						<form class="php-email-form" ng-controller="formControl" name="myForm">
+							<div class="form-row">
+								<div class="col-lg-6 form-group">
+									<input type="text" name="inputn" class="form-control" ng-model="examplevalue2" id="name" placeholder="Your Name" ng-pattern="/^\w{2,12} \w{1,10}$/" required>
+                                        <span class="error" ng-show="myForm.inputn.$dirty&&myForm.inputn.$error.required" style="color: tomato; font-size: 10pt;">
+                                          Required!</span>
+                                        <span class="error" ng-show="myForm.inputn.$dirty&&myForm.inputn.$error.pattern" style="color: tomato; font-size: 10pt;">
+                                          Please enter your full name</span>
+                                    
+								</div>
+							</div>
+
+							<div class="form-row">
+								<div class="col-lg-6 col-md-6 form-group">
+									<input ng-model="email.text" type="email" name="inpute" class="form-control" id="email" placeholder="Your Email" required>
+									<div role="alert">
+                                        <span class="error" ng-show="myForm.inpute.$error.required" style="color: tomato; font-size: 10pt;">
+                                          Required!</span>
+                                        <span class="error" ng-show="myForm.inpute.$error.email" style="color: tomato; font-size: 10pt;">
+                                          Not valid email!</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 form-group">
+									<input type="text" name="inputp" ng-model="example.value" ng-pattern="/^[6-9]{1,1}[0-9]{9,9}$/" class="form-control" id="phone" placeholder="Your Phone" required>
+									<div role="alert">
+                                        <span class="error" ng-show="myForm.inputp.$touched&&myForm.inputp.$error.required" style="color: tomato; font-size: 10pt;">
+                                          Required!</span>
+                                        <span class="error" ng-show="myForm.inputp.$touched&&myForm.inputp.$error.pattern" style="color: tomato; font-size: 10pt;">
+                                          Not valid phone number!</span>
+                                    </div>
+								</div>
+                            </div>
+
+							<div class="form-row">
+								
+
+							</div>
+
+							<div class="form-row">
+								<div class="col-lg-6 col-md-6 form-group">
+									<input id="date" type="date" name="date" placeholder="Choose a Date" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Choose a Date'" class="form-control mt-20" id="datepicker2" min="2020-10-08" required>
+								</div>
+
+								<div class="col-lg-6 col-md-6 form-group">
+									<select class="custom-select form-control" name="time" id="time">
+										<option selected>Choose a Time</option>
+										<option value="9:00am to 12:00pm">9:00am to 12:00pm</option>
+										<option value="12:00pm to 3:00pm">12:00pm to 3:00pm</option>
+										<option value="3:00pm to 6:00pm">3:00pm to 6:00pm</option>
+										<option value="6:00pm to 9:00pm">6:00pm to 9:00pm</option>
+										<option value="9:00pm to 12:00am">9:00pm to 12:00am</option>
+									</select>
+								<div class="validate"></div>
+								</div>
+                            </div>
+                            
+                            <div style="font-size: 10pt;">
+                               Vegetarian Only: <input type="checkbox" style="height:10px; padding:0px; margin:0px;" ng-model="boxClass" />
+                                <div style="position: absolute; left:170px; top:345px; z-index: 10000;" class="box rotate" ng-class="{'box': boxClass, 'circle': !boxClass} "></div>
+                            </div>
+
+                            <br/>
+						
+							<div class="form-row">
+				
+								<div class="text-center"><button type="submit">Book a Table</button></div>
+				
+								<div class="loading">Loading</div>
+								<div class="error-message"></div>
+					
+						</div>
+				
+					</form>
+					</div>
+				
+                    </div>
+                    
+                </div>
+
+                
+                
+                
+              </section>
+              
+                <div style="background-color: white; width: 730px; height:250px; position: relative; left:397px; top:10px;"> 
+                    <div style="padding:40px;">
+                        <h4> Your Booking Details</h4> <br/>
+                        Person Name : <span id="pname" style="font-weight:bold; color: 333;"> {{examplevalue2}} </span> <br/>
+                        Contact Details : <span id="contact"  style="font-weight:bold; color: 333;" ng-bind="email.text"> </span> <span ng-bind="example.value"> </span> <br/>
+                        Date & Time : <span ng-bind="date" id="dt" style="font-weight:bold; color: 333;"> </span> <span ng-bind="time" id="ti" style="font-weight:bold; color: 333;"> </span> 
+
+                    </div>
+
+                </div>
+
+                
+
+        </div>
+
+        <!---
+        <div style="height: 95vh;">
+            <div class="container" ng-app="myApp" ng-controller="ItemCtrl">
+                <div class="row">
+                  <div class="one-half column offset-by-three">
+                    <h1 class="text-center">Groceries</h1>
+                    <ul>
+                      <li ng-repeat="item in items" class="fade">
+                        {{item.name}}
+                        <span ng-click="removeItem($index)">X</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="one-half column offset-by-three">
+                    <input type="text" ng-model="item.name" />
+                    <button class="button-primary" ng-click="addItem()">Add Item</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+        -->
+        
+
+        <script>
+            $(function(){
+              $("#nav-place").load("navbar.html");
+            });
+        </script>
+
+        <script>
+            var app = angular.module("my-App",[]);
+            app.controller("onlineBookingDescription", function($scope){
+                $scope.reason = "A table reservation is an arrangement made in advance to have a table available at a restaurant. Reservations for later dining times may prove problematic, as a restaurant may have a backlog which will require the reservation-holders to wait beyond their stated arrival time. None of us, here at NaiCafe, likes you to wait! Neither do we!";
+                $scope.solution = "That is why we are suggesting you to make use of our online reservation system.";
+            });
+
+            app.controller("menuCtrl", function($scope){
+                $scope.menu = {items : 
+                    [
+                        {SlNo: 1, Type: "Indian Breads", Name : "Chappathi", Price : 10},
+                        {SlNo: 2, Type: "Indian Breads", Name : "Perotta", Price : 12},
+                        {SlNo: 3, Type: "Indian Breads", Name : "Naan", Price : 15},
+                        {SlNo: 4, Type: "Indian Breads", Name : "Single Dosa", Price : 8},
+                        {SlNo: 5, Type: "Veg Curries", Name : "Paneer Masala", Price : 80},
+                        {SlNo: 6, Type: "Veg Curries", Name : "Mushroom Masala", Price : 70},
+                        {SlNo: 7, Type: "Veg Curries", Name : "Jeera Aloo", Price : 70},
+                        {SlNo: 8, Type: "Veg Curries", Name : "Veg Kadai", Price : 80},
+                        {SlNo: 9, Type: "Veg Curries", Name : "Gobi Masala", Price : 70},
+                        {SlNo: 10, Type: "Veg Curries", Name : "Rajma Masala", Price : 60},
+                        {SlNo: 11, Type: "Dessert", Name : "Ice Cream", Price : 40},
+                        {SlNo: 12, Type: "Dessert", Name : "Carrot Halwa", Price : 40},
+                        {SlNo: 13, Type: "Dessert", Name : "Kesari", Price : 30},
+                        {SlNo: 14, Type: "Dessert", Name : "Fruit Salad", Price : 50},
+                        {SlNo: 15, Type: "Dessert", Name : "Milkshake", Price : 80},
+                        {SlNo: 16, Type: "Snacks/Tea", Name : "Tea", Price : 10}, 
+                        {SlNo: 17, Type: "Snacks/Tea", Name : "Coffee", Price : 10}
+                    ]
+                };
+
+                $scope.orderByMe = function(x){
+                    $scope.menuOrderBy = x;
+                }
+            });
+
+            app.controller('formControl', ['$scope',
+                function($scope){
+                    $scope.email = {text:'example@mail.com'};
+                    $scope.boxClass = true;
+                }
+
+            ]);
+            
+            app.controller('formCnt', ['$scope',
+                function($scope){
+                    $scope.email = {text:''};
+                }            
+            ]);
+
+        </script>
+
+        <script>
+            angular.module('myApp', ['ngAnimate'])
+                .controller('ItemCtrl', function($scope) {
+                $scope.items = [
+                    {name: "Lunchmeat"},
+                    {name: "Bread"},
+                    {name: "Milk"},
+                    {name: "Mustard"},
+                    {name: "Cheese"}
+                ];
+                $scope.addItem = function() {
+                    $scope.items.push($scope.item);
+                    $scope.item = {};
+                };
+                $scope.removeItem = function(index) {
+                    $scope.items.splice(index, 1);
+                };
+            });
+        </script>
+
+        <script>
+            $("#name").keyup(function(){
+                txt = $(this).val();
+                $("#pname").html(txt);
+            });
+
+            $("#email").keyup(function(){
+                txt = $(this).val() + " / " + $("#phone").val();
+                $("#contact").html(txt);
+            });
+
+            $("#phone").keyup(function(){
+                txt = $("#email").val() + " / " + $("#phone").val();
+                $("#contact").html(txt);
+            });
+
+            $("#date").change(function(){
+                txt = $("#date").val();
+                console.log(txt);
+                $("#dt").html(txt+", ");
+            });
+
+            $("#time").change(function(){
+                txt = $("#time").val();
+                console.log(txt);
+                $("#ti").html(txt);
+            });
+
+            
+
+
+        </script>
+
+        
+        
+
+    </body>
+</html>

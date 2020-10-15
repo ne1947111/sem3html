@@ -1,0 +1,304 @@
+@import url(https://fonts.googleapis.com/css?family=Varela);
+@font-face {
+    font-family: "SlateForOnePlus-Bold";
+    src: url("Fonts/SlateForOnePlus-Bold.ttf");
+    }
+    
+@font-face {
+font-family: "SlateForOnePlus-Medium";
+src: url("Fonts/SlateForOnePlus-Medium.ttf");
+}
+
+@font-face {
+font-family: "OpenSans-ExtraBold";
+src: url("Fonts/OpenSans-ExtraBold.ttf");
+}
+
+@font-face {
+font-family: "Soulmaze";
+src: url("Fonts/Soulmaze.otf");
+}
+
+@font-face {
+font-family: "Soulmaze-Outline";
+src: url("Fonts/Soulmaze-Outline.otf");
+}
+.login{
+
+}
+html {
+  height: 100%;
+}
+body {
+  font-family: 'Varela', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  min-height: 100%;
+  position: relative;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background-image: url("Images/gaming-bg.jpg") !important;  
+}
+label {
+  margin-bottom: 0;
+}
+
+a {
+  color: #e1e1e1;
+}
+
+a:focus,
+a:hover {
+  color: #008080;
+}
+
+.checkbox-inline+.checkbox-inline,
+.radio-inline+.radio-inline {
+  margin-top: 6px;
+}
+
+body.login {
+  background: rgba(255, 255, 255, 1);
+}
+
+.relative {
+  position: relative;
+}
+.switcher{
+  margin-bottom:70px;
+}
+ul.switcher li{
+	list-style-type: none;
+	width:50%;
+  position:absolute;
+  top:0;
+}
+.first{
+  left:0;
+}
+.second{
+  right:0;
+}
+.login-container-wrapper {
+  max-width: 400px;
+  margin: 10% auto 5%;
+  padding: 40px;
+  box-sizing: border-box;
+  background: rgba(57, 89, 116, 0.8);
+  position: relative;
+  box-shadow: 0px 30px 60px -5px #000;
+  background-image:url('Images/login-bg.jpg');
+  background-size: cover;
+  background-blend-mode:saturation;
+}
+.login-container-wrapper .logo,
+.login-container-wrapper .welcome {
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.login-container-wrapper li {
+  text-align: center;
+  padding:0 15px;
+  background-color: #283443;
+  height:50px;
+  line-height:50px;
+  box-shadow: inset 0 -2px 0 0 #ccc;
+  cursor:pointer;
+}
+.login-container-wrapper li a{
+   color:#fff;
+}
+.login-container-wrapper li a:hover{
+  color:#ccc;
+  text-decoration:none;
+}
+
+.login-container-wrapper li a:active,
+.login-container-wrapper li a:focus{
+  color:#fff;
+  text-decoration:none;
+}
+.login-container-wrapper li.active{
+  background-color:transparent;
+  box-shadow:none;
+}
+.login-container-wrapper li.active a{
+  border-bottom:2px solid #fff;
+  padding-bottom:5px;
+}
+
+.login input:focus + .fa{
+  color:#25a08d;
+}
+.login-form .form-group {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.login-form i {
+  position: absolute;
+  top: 0;
+  left: 19px;
+  line-height:52px;
+  color: rgba(40, 52, 67, 1);
+  z-index:100;
+  font-size:16px;
+}
+
+.login-form .input-lg {
+  font-size: 16px;
+  height: 52px;
+  padding: 10px 25px;
+  border-radius: 0;
+}
+
+.login input[type="email"],
+.login input[type="password"],
+.login input:focus {
+  background-color: rgba(40, 52, 67, 0.75);
+  border: 0px solid #4a525f;
+  color: #eee;
+  border-left: 45px solid #93a5ab;
+  border-radius:40px;
+}
+
+.login input:focus {
+  border-left: 45px solid #eee;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background-color: rgba(40, 52, 67, 0.75)!important;
+  background-image: none;
+  color: rgb(0, 0, 0);
+  border-color: #FAFFBD;
+}
+
+.login .checkbox label,
+.login .checkbox a {
+  color: #ddd;
+  vertical-align: top;
+}
+input[type="checkbox"]:checked + label::before,
+.checkbox-success input[type="radio"]:checked + label::before {
+    background-color: #25a08d !important;
+}
+.btn-success {
+  background-color: #25a08d;
+  background-image: none;
+  padding: 8px 50px;
+  margin-top:20px;
+  border-radius: 40px;
+  border: 1px solid #25a08d;
+  -webkit-transition: all ease 0.8s;
+  -moz-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+}
+
+.btn-success:focus,
+.btn-success:hover,
+.btn-success.active,
+.btn-success.active:hover,
+.btn-success:active:hover,
+.btn-success:active:focus,
+.btn-success:active {
+  background-color: #25a08d;
+  border-color: #25a08d;
+  box-shadow: 0px 5px 35px -5px #25a08d;
+  text-shadow:0 0 8px #fff;
+  color: #FFF;
+  outline:none;
+}
+
+html{
+    scroll-behavior: smooth;
+    position: relative;
+    min-height: 100%;
+}
+h1{
+    font-size: 40px;
+    font-family: SlateForOnePlus-Bold;
+}
+.navbar { 
+    background-color: white; 
+    font-family: SlateForOnePlus-Bold;
+    position:fixed; 
+    width:100%; 	
+    background: transparent !important; 
+    z-index: 100000; 
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    width: 100%;
+    height: 300px;
+}
+
+/* Sticky footer style and color
+-------------------------------------------------- */
+footer {
+    padding-top: 30px;
+    background-color: #292c2f;
+    color: #bbb;
+}
+
+footer a {
+    color: #999;
+    text-decoration:none;
+}
+
+footer a:hover, footer a:focus {
+    color: white;
+    text-decoration:none;
+    border-bottom: 2px solid white;
+    background-color: transparent !important;
+}
+
+footer .form-group{
+    border: none !important;
+}
+
+footer .form-control {
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    color: #d1d2d2;
+    padding: 0.7em 1em;
+}
+
+
+.teamtable{
+    display: inline;
+}
+
+.soulmaze{
+    font-family: Soulmaze;
+}
+.soulmazeoutline{
+    font-family: Soulmaze-Outline;
+}
+
+.text-center a {
+    color: #fff ;
+}
+
+.text-center a:hover{
+    text-shadow: 0 0 8px #fff;
+    text-decoration: none;
+}
+
+.login .navbar-collapse .nav .nav-item .nav-link{
+    color: #fff !important;
+}
+
+.login .navbar-collapse .nav .nav-item .nav-link:hover{
+    border-color: #ccc;
+	border-bottom: 1.3px solid white;
+    background-color: transparent;
+}

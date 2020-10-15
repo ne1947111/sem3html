@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> NaiCafe Restaurant </title>
+		
+		<link href="images/restlogo.png" rel="icon">
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<meta name="description" content="Restaurant HTML Template">
+		<meta name="author" content="Themics">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="form/css/main.css">
+		<link rel="stylesheet" href="css/animate.min.css">
+		<link rel="stylesheet" href="css/aos.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/boxicons.min.css">
+		<link rel="stylesheet" href="css/icofont.min.css">
+		<link rel="stylesheet" href="css/owl.carousel.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/venobox.css">
+
+		<style>
+			html{scroll-behavior: smooth;}
+			.navbar { background-color: #222222EE; position:fixed; width:100%; z-index: 100000; }
+			.navbar .navbar-nav .nav-link { color: #fff; }
+			.navbar .navbar-nav .nav-link:hover { color: #fbc531; }
+			.navbar .navbar-nav .active > .nav-link { color: #fbc531; }
+
+			.yellowcolor{
+				color:#ffb700;
+			}
+
+			.bold{
+				font-weight: bold;
+			}
+			.fade {
+				opacity: 1;
+			}
+			.blackbg{
+				background-color: #333;
+			}
+			.whitebg{
+				background-color: #FFF;
+			}
+			.yellowbg{
+				background-color: #FFB03B;
+			}
+
+			.zoom{
+				transition: all 200ms ease-in-out;
+				-webkit-transition: all 200ms ease-in-out;
+				-webkit-animation: all 200ms ease-in-out;
+			}
+
+			.box:hover{
+				transform: scale(1.1);
+				transition: all 200ms ease-in-out;
+				-webkit-transition: all 200ms ease-in-out;
+				-webkit-animation: all 200ms ease-in-out;
+			}
+
+			.loadercontainer{
+				background-color: black;
+				z-index:999999;
+				height: 100vh;
+				position:fixed;
+				width: 100vw;
+				opacity: .8;
+				display: none;
+			}
+
+			.loader {
+				position: fixed;
+				z-index: 1000000;
+				margin: auto;
+				top:0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				border: 10px solid #f3f3f3;
+				border-radius: 50%;
+				border-top: 6px solid #FFB03B;
+				border-bottom: 6px solid #333;
+				width: 60px;
+				height: 60px;
+				/*-webkit-animation: spin 2s linear infinite;
+				animation: spin 2s linear infinite;
+				}
+
+				@-webkit-keyframes spin {
+				0% { -webkit-transform: rotate(0deg); }
+				100% { -webkit-transform: rotate(360deg); }
+				}
+
+				@keyframes spin {
+				0% { transform: rotate(0deg); }
+				100% { transform: rotate(360deg); }*/
+				}
+			
+			.selectedreview{
+				background-color: #FFB03B;
+				color: white;
+			}
+			.reviewhead{
+				padding: 10px;
+				border-radius: 5px;
+			}
+
+			.gallery-item{
+				overflow: hidden;
+			}
+			
+			.img-fluid{
+				display: block;
+				transition: all 500ms ease-in-out;
+				-webkit-transition: all 500ms ease-in-out;
+				-webkit-animation: all 500ms ease-in-out;
+			}
+
+			.form-control{
+				min-width: 100px;
+				max-width: 300px;
+				width: 250px;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		
+		
+		<header>
+			<!--- Navbar --->
+			<div id="nav-place">
+
+            </div>
+			<!--# Navbar #-->
+		</header>	
+
+
+		<div class="loadercontainer">
+			<div class="loader"></div>
+		</div>
+
+
+		<!-- ======= LANDING Section ======= -->
+		<section id="hero">
+			<div class="hero-container">
+			<div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+		
+				<ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+		
+				<div class="carousel-inner" role="listbox">
+		
+				<!-- Slide 1 -->
+				<div class="carousel-item active" style="background: url(css/image1.jpg);">
+					<div class="carousel-container">
+					<div class="carousel-content">
+						<img src="images/img1.webp" style="width:40vh; margin-bottom: -30;"/>
+						<h2 class="animated fadeInDown">Welcome to</h2>
+						<h1 class="animated fadeInUp" ><span>NaiCafe</span> Restaurant</h1>
+						<div>
+						<a href="#menu" class="btn-menu animated fadeInUp scrollto">View Table Bookings</a>
+						<a href="login.php" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+						</div>
+					</div>
+					</div>
+				</div>
+		
+				<!-- Slide 2 -->
+				<div class="carousel-item" style="background: url(css/image2.jpg) ;">
+					<div class="carousel-container">
+					<div class="carousel-content">
+						<h2 class="animated fadeInDown">The Complete Dining Experience</h2>
+						<h1 class="animated fadeInUp">See<span> What's New </span>Today</h1>
+						<div>
+						<a href="#menu" class="btn-menu animated fadeInUp scrollto">View Table Bookings</a>
+						<a href="login.php" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+						</div>
+					</div>
+					</div>
+				</div>
+		
+				<!-- Slide 3 -->
+				<div class="carousel-item" style="background: url(css/image3.jpg);">
+					<div class="carousel-container">
+					<div class="carousel-content">
+						<h2 class="animated fadeInDown">Get Ready</h2>
+						<h1 class="animated fadeInUp">To <span>Join</span> With Us</h1>
+						<div>
+						<a href="#menu" class="btn-menu animated fadeInUp scrollto">View Table Bookings</a>
+						<a href="login.php" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+						</div>
+					</div>
+					</div>
+				</div>
+		
+				</div>
+		
+				<a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="next">
+				<span class="carousel-control-prev-icon aria-hidden="true"> <i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+				<span class="sr-only">Next</span>
+				</a>
+		
+				<a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"> <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+				<span class="sr-only">Next</span>
+				</a>
+		
+			</div>
+			</div>
+		</section><!-- End Hero -->
+		
+		
+		
+		<!-- ======= About Section ======= -->
+		<div class="whitebg">
+			<section id="about" class="about fade">
+
+				
+				<div class="container" class="fade" >
+			
+					  <div class="row">
+	
+						<div class="col-lg-5 d-flex align-items-center justify-content-center" style="overflow: hidden;">
+							<img class="zoom" width="400px" src="images/food3.jpg"/>
+						</div>
+				
+						<div class="col-lg-6 pt-4 pl-4">
+							<div class="section-title">
+								<h2> <b> About Us </b> </h2>
+								<p>About NaiCafe Restaurant</p>
+							</div>
+						
+							<p class="font-italic">
+								Call it a getaway or a pit-stop on the highway, when you enter NaiCafe, you enter a zone that is as fast or slow paced as you want it to be. The colours and ambience of this Lifestyle café are sure to inspire in you a sense of freedom. NaiCafe comes from our need to unwind and take a moment from our fast paced lives to spend some quality time with our friends and family. This is NaiCafe and you are all welcome.						</p>
+							<ul class="yellowcolor bold">
+								<li> <i class="fa fa-check" aria-hidden="true"></i> Nice Atmosphere </li>
+								<li> <i class="fa fa-check" aria-hidden="true"></i> Easily Locatable </li>
+								<li> <i class="fa fa-check" aria-hidden="true"></i> Wide Variety of Dishesh </li>
+							</ul>
+							<p>
+								We love to eat, to take our time and enjoy the flavours in a series of small dishes. Our degustation gives you the chance to do exactly that. More than a succession of plates, we offer you an experience, a connection between each dish, pulling from our seaside location in Bronte. Complete the journey with our optional matching drinks.
+						</div>
+					</div>
+			  </div>
+			</section>
+
+		</div>
+
+		<!-- ============= WHY US SECTION =============  -->
+
+		<div class="blackbg">
+			<section id="why-us" class="why-us fade">
+				<div class="container">
+			  
+				  <div class="section-title">
+					<h2>Why Us</h2>
+					<p style="color: white;">Why To Choose Our Restaurant for a Perfect Evening</p>
+				  </div>
+			  
+				  <div class="row">
+			  
+					<div class="col-lg-4 col-md-4 mt-4 mt-lg-0">
+					  <div class="box" style="background-color: #FFF;">
+						<span>01</span>
+						<h4>Delicious Food</h4>
+						<p>We very much take care of how we make our food. Its not just to eat anymore, its an artwork too!</p>
+					  </div>
+					</div>
+			  
+					<div class="col-lg-4 col-md-4 mt-4 mt-lg-0">
+					  <div class="box" style="background-color: #FFF;">
+						<span>02</span>
+						<h4>Professional Service</h4>
+						<p>What's good food without smiling faces serving it!! We try to give you the best dining experience!</p>
+					  </div>
+					</div>
+			  
+					<div class="col-lg-4 col-md-4 mt-4 mt-lg-0">
+					  <div class="box" style="background-color: #FFF;" >
+						<span>03</span>
+						<h4>Excellent Menu</h4>
+						<p>We offer dishes from wide variety of cuisines, each one prepared with utmost perfection</p>
+					  </div>
+					</div>
+			  
+				  </div>
+			  
+				</div>
+			  </section>
+		</div>
+		
+
+		<div class="yellowbg">
+			<section id="gallery" class="fade">
+				<div class="container">
+					<div class="section-title">
+						<h2 style="color: white;"> <b> Gallery </b></h2>
+						<p style="color: #333;">Some photos of our daily dishes</p>
+					</div>
+
+					<div class="container-fluid">
+
+						<div class="row no-gutters">
+					
+						  <div class="col-lg-3 col-md-4">
+							<div class="gallery-item">
+								<img src="images/food1.jpg" alt="" class="img-fluid">
+							</div>
+						  </div>
+					
+						  <div class="col-lg-3 col-md-4">
+							<div class="gallery-item">
+								<img src="images/food2.jpg" alt="" class="img-fluid">
+							</div>
+						  </div>
+					
+						  <div class="col-lg-3 col-md-4">
+							<div class="gallery-item">
+								<img src="images/food3.jpg" alt="" class="img-fluid">
+							</div>
+						  </div>
+					
+						  <div class="col-lg-3 col-md-4">
+							<div class="gallery-item">
+								<img src="images/food4.jpg" alt="" class="img-fluid">
+							</div>
+						  </div>
+					
+						  <div class="col-lg-3 col-md-4">
+							<div class="gallery-item">
+								<img src="images/food5.jpg" alt="" class="img-fluid">
+							</div>
+						  </div>
+					
+						  <div class="col-lg-3 col-md-4">
+							<div class="gallery-item">
+								<img src="images/food6.jpg" alt="" class="img-fluid">
+							</div>
+						  </div>
+					
+						  <div class="col-lg-3 col-md-4">
+							<div class="gallery-item">
+								<img src="images/food7.jpg" alt="" class="img-fluid">
+							</div>
+						  </div>
+					
+						  <div class="col-lg-3 col-md-4">
+							<div class="gallery-item">
+								<img src="images/food8.jpg" alt="" class="img-fluid">
+							</div>
+						  </div>
+					
+						</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- ============= REVIEWS =================== -->
+		<div class="whitebg">
+			<section id="reviews" class="fade" style="min-height: 700px; text-align: left">
+	
+				<div class="container" class="fade" >
+			
+					<div class="row">
+			  
+					  	<div class="col-lg-6 pt-4 pl-4">
+							<div class="section-title">
+								<h2> <b> Reviews </b> </h2>
+								<p> What our customers say</p>
+							</div>
+							
+							<h3 id="review1" class="reviewhead font-italic selectedreview"> "Just Amazing" </h3>
+							<p id="reviewbody1" style="font-size: small;"> When it comes to Cafe, this place tops my list. And you will surely miss this place once you move out of Bangalore. It has three dedicated floors of dining area with ample seating capacity but still it runs out of space in peak hours. Such is the demand for this restaurant. It enjoys it's loyal fan-base and I am indeed one among them.  </p>
+							
+							<h3 id="review2" class="reviewhead font-italic"> "Awesome Food!!"" </h3>
+							<p id="reviewbody2" style="font-size: small; display: none"> I love all their food items, be it starters or main course or desserts. My favorites here are Chicken Rooster Burger, All American Cheese Burger, Tandoori Chicken Pizza, Ferrero Rocher Pastry and Shake. The staff and service is good. The ambiance is pleasant. A lovely restaurant to dine out. Must visit place when you are in Bangalore. </p>
+							
+							<h3 id="review3" class="reviewhead font-italic"> "Wonderful Experience" </h3>
+							<p id="reviewbody3" style="font-size: small; display: none"> Just amazing experience.No words to describe the taste of burger and pasta was just wonderful. It's pocket friendly too. </p>
+							
+							<h3 id="review4" class="reviewhead font-italic"> "What a Menu!!" </h3>
+							<p id="reviewbody4" style="font-size: small; display: none"> Their breakfast buffet menu is too good and tastes amazing. In the buffet, I found the nuggets, baked beans, and their special chicken omelet are heavenly. The place is crowded on Sunday morning as a result. There is an outdoor seating area or you can sit on the 1st floor. For the first time, I had their green apple granita among the beverages in this joint at New Bel Road and found it amazing </p>
+							
+						
+						</div>
+
+						<div class="col-lg-6  align-items-center justify-content-center" style="overflow: hidden;">
+							<img class="zoom" width="700px" src="images/food2.jpg"/>
+						</div>
+				  </div>
+			</div>
+
+			</section>
+			
+		</div>
+
+		<div class="blackbg" style="height: 200px;">
+		</div>
+
+		
+		
+		<script>
+
+			// FADE ON SCROLL
+			$(window).on("load",function() {
+				$(window).scroll(function() {
+					var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+					$(".fade").each(function() {
+					/* Check the location of each desired element */
+					var objectBottom = $(this).offset().top + $(this).outerHeight();
+					
+					/* If the element is completely within bounds of the window, fade it in */
+					if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+						if ($(this).css("opacity")==0) {$(this).fadeTo(300,1);}
+					} else { //object goes out of view (scrolling up)
+						if ($(this).css("opacity")==1) {$(this).fadeTo(100,0);}
+					}
+					});
+				}).scroll(); //invoke scroll-handler on page-load
+			});
+
+
+			$(document).ready(function(){
+				$(".box").hover(
+					function(){
+						$(this).css("background-color", "#FFB03B");
+					}, 
+					function(){
+						$(this).css("background-color", "#FFF");
+					}
+				);
+
+				$(".zoom").hover(
+					function(){
+						$(this).css("transform", "scale(1.2)");
+					}, 
+					function(){
+						$(this).css("transform", "scale(1)");
+					}
+				);
+
+				$("#review1").click(function(){
+					$(this).toggleClass("selectedreview", 1000, "easeOutSine");
+					$("#reviewbody1").slideToggle();
+					$("#reviewbody2").slideUp();
+					$("#reviewbody3").slideUp();
+					$("#reviewbody4").slideUp();
+					$("#review2, #review3, #review4").removeClass("selectedreview", 1000, "easeOutSine");
+				});
+
+				$("#review2").click(function(){
+					$(this).toggleClass("selectedreview", 1000, "easeOutSine");
+					$("#reviewbody2").slideToggle();
+					$("#reviewbody1").slideUp();
+					$("#reviewbody3").slideUp();
+					$("#reviewbody4").slideUp();
+					$("#review1, #review3, #review4").removeClass("selectedreview", 1000, "easeOutSine");
+				});
+
+				$("#review3").click(function(){
+					$(this).toggleClass("selectedreview", 1000, "easeOutSine");
+					$("#reviewbody3").slideToggle();
+					$("#reviewbody1").slideUp();
+					$("#reviewbody2").slideUp();
+					$("#reviewbody4").slideUp();
+					$("#review2, #review1, #review4").removeClass("selectedreview", 1000, "easeOutSine");
+				});
+
+				$("#review4").click(function(){
+					$(this).toggleClass("selectedreview", 1000, "easeOutSine");
+					$("#reviewbody4").slideToggle();
+					$("#reviewbody1").slideUp();
+					$("#reviewbody2").slideUp();
+					$("#reviewbody3").slideUp();
+					$("#review2, #review3, #review1").removeClass("selectedreview", 1000, "easeOutSine");
+				});
+
+				$(window).resize(function(){
+					$('.loadercontainer').show();
+					animateRotate();
+					waitForFinalEvent(function(){
+						$('.loadercontainer').delay(200).fadeOut();
+						$(".loader").css("transform", "rotate(0deg)");
+					}, 200);
+				});
+
+				$(".img-fluid").hover(function(){
+					$(this).css("transform", "scale(1.2)");
+					}, function(){
+					$(this).css("transform", "scale(1.0)");
+				});
+
+				$(".form-control").focusin(function(){
+					$(this).animate({
+						width:"300px"
+					}, 500);
+
+					$(this).css("background-color", "#F6f6f6");
+					$(this).css("border-radius", "5px");
+				});
+
+				$(".form-control").focusout(function(){
+					$(this).animate({
+						width:"250px"
+					}, 500);
+
+					$(this).css("background-color", "#fff");
+					$(this).css("border-radius", "5px");
+				});
+
+				function animateRotate(){
+					$(".loader").animate(
+						{ deg: 360 },
+						{
+						duration: 1000,
+						step: function(now) {
+							$(".loader").css({ transform: 'rotate(' + now + 'deg)' });
+						}
+						}
+					);
+
+					$(".loader").animate(
+						{ deg: 0 },
+						{
+						duration: 1000,
+						step: function(now) {
+							$(".loader").css({ transform: 'rotate(' + now + 'deg)' });
+						}
+						}
+					);
+				}
+				
+
+			});
+
+			var waitForFinalEvent = (function () {
+			var timers = {};
+			return function (callback, ms, uniqueId) {
+				if (!uniqueId) {
+				uniqueId = "Don't call this twice without a uniqueId";
+				}
+				if (timers[uniqueId]) {
+				clearTimeout (timers[uniqueId]);
+				}
+				timers[uniqueId] = setTimeout(callback, ms);
+			};
+			})();
+
+			
+
+			
+		</script>
+
+		
+		
+	</body>
+
+</html>
