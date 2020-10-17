@@ -54,7 +54,8 @@
 				background-color: #FFF;
 			}
 			.yellowbg{
-				background-color: #FFB03B;
+				background: rgb(237,237,237);
+				background: linear-gradient(133deg, rgba(237,237,237,1) 0%, rgba(219,219,219,1) 35%, rgba(140,140,140,1) 100%);
 			}
 
 			.zoom{
@@ -64,7 +65,7 @@
          }
          
          .zoom:hover{
-            transform: scale(1.2);
+            transform: scale(1.1);
          }
 
 			.box:hover{
@@ -143,11 +144,14 @@
       <style>
          table, th, td{
             padding:5px;
+			border-style: solid;
+			border-color:#333;
+			border-width:10px;
          }
 
          td.leftside{
             width:100px;
-            height:100px;
+            height:120px;
             padding:0px;
          }
 
@@ -156,14 +160,26 @@
             vertical-align: middle;
          }
          .lef:hover{
-            background-color: #FFD05B;
-            box-shadow: 5px 5px 5px #333333;
+			background: rgb(255,197,53);
+			background: linear-gradient(128deg, rgba(255,197,53,1) 0%, rgba(232,172,18,1) 30%, rgba(184,133,2,1) 78%);
+		 }
+
+		 .selected{
+			background: rgb(255,208,91);
+			background: linear-gradient(90deg, rgba(255,208,91,1) 0%, rgba(232,182,56,1) 35%, rgba(205,158,39,1) 100%);	
+		 }
+         .leftimage{
+			transform: rotate(0deg);
+			width:100px;
+			padding:30px;
+			transition: all 600ms ease-in-out;
+	
          }
 
-         .leftimage{
-            width:100px;
-            padding:30px;
-         }
+		 .leftimage:hover{
+			transform: rotate(360deg);
+			transition: all 600ms ease-in-out;
+		 }
       </style>
 	</head>
 
@@ -176,19 +192,21 @@
          <div class="blackbg" style="padding-left:30px; padding-top:0px; padding-bottom:0px;">
             <table>
                <tr>
-               <td class="leftside">
-                     <div class="yellowbg lef zoom" style="height:100%; width:100%; vertical-align:center;">
+               <td class="leftside" style="vertical-align: top;">
+                     <div id='lefthome' onclick="loadPage('lefthome')" class="yellowbg lef zoom selected" style="height:100%; width:100%; vertical-align:center;">
                         <img class="leftimage" src="images/homeicon.webp"/>
                      </div>
                   </td>
-                  <td rowspan="5" style="width:600px;"> 
-                  
+                  <td rowspan="7" style="background-color: white; width:1760px;">
+		
+				  	<iframe id="MainContent" src="homepage.html" style="width:100%; border-width:0px; height:830px; background-color: white;">	
+					</iframe>
                   </td>
                </tr>
 
                <tr>
                   <td class="leftside">
-                     <div class="yellowbg lef zoom" style="height:100%; width:100%; vertical-align:center;">
+                     <div id='leftmenu' onclick="loadPage('leftmenu')" class="yellowbg lef zoom" style="height:100%; width:100%; vertical-align:center;">
                         <img class="leftimage" src="images/menuimage.png"/>
                      </div>
                   </td>
@@ -196,7 +214,7 @@
 
                <tr>
                   <td class="leftside">
-                     <div class="yellowbg lef zoom" style="height:100%; width:100%; vertical-align:center;">
+                     <div id='leftnew' onclick="loadPage('leftnew')" class="yellowbg lef zoom" style="height:100%; width:100%; vertical-align:center;">
                         <img class="leftimage" src="images/neworder.webp"/>
                      </div>
                   </td>
@@ -204,23 +222,69 @@
 
                <tr>
                   <td class="leftside">
-                     <div class="yellowbg lef zoom" style="height:100%; width:100%; vertical-align:center;">
+                     <div id='leftview' onclick="loadPage('leftview')" class="yellowbg lef zoom" style="height:100%; width:100%; vertical-align:center;">
                         <img class="leftimage" src="images/viewicon.png"/>
+                     </div>
+                  </td>
+               </tr>
+
+			   <tr>
+                  <td class="leftside">
+                     <div id='leftaccount' onclick="loadPage('leftaccount')" class="yellowbg lef zoom" style="height:100%; width:100%; vertical-align:center;">
+                        <img class="leftimage" src="images/profileimage.webp"/>
                      </div>
                   </td>
                </tr>
 
                <tr>
                   <td class="leftside">
-                     <div class="yellowbg lef zoom" style="height:100%; width:100%; vertical-align:center;">
-                        <img class="leftimage" src="images/signout.png"/>
+                     <div id='leftsignout' onclick="loadPage('aboutus.php')" class="yellowbg lef zoom" style="height:100%; width:100%; vertical-align:center;">
+                        <img class="leftimage" src="images/contact.jpg"/>
                      </div>
+                  </td>
+               </tr>
+
+			   <tr>
+                  <td class="leftside">
+					 <a href="logout.php">
+						<div class="yellowbg lef zoom" style="height:100%; width:100%; vertical-align:center;">
+							<img class="leftimage" src="images/signout.png"/>
+						</div>
+					</a>
                   </td>
                </tr>
 
 
             </table>
          </div>
+
+		<script>
+			maincontent = document.getElementById("MainContent");
+			divs = ['lefthome', 'leftmenu', 'leftnew', 'leftview', 'leftaccount', 'leftsignout'];
+			function loadPage(divid){
+				for(i in divs){
+					$('#'+divs[i]).removeClass("selected");
+				}
+				$('#'+divid).addClass("selected");
+
+				if(divid=="lefthome"){
+					maincontent.src = "homepage.html";
+				}
+
+				if(divid=="leftmenu"){
+					maincontent.src = "menu.html";
+				}
+
+				if(divid=="leftnew"){
+					maincontent.src = "newbooking.php";
+				}
+
+				if(divid=="leftaccount"){
+					maincontent.src = "myprofile.php";
+				}
+			}
+
+		</script>
 
 	</body>
 </html>

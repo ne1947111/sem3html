@@ -15,9 +15,11 @@
 		
 		if($count == 1) {
 			$_SESSION['login_user'] = $email;
+
 			header("location: welcome.php");
 		 }else {
 			$error = "Your Login Name or Password is invalid";
+			echo "<script> window.alert('Entered Username/password is invalid'); </script>";
 		 }
 	}
 ?>
@@ -229,6 +231,3 @@
 
 	</body>
 </html>
-
-
-
